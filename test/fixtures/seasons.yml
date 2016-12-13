@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2016-12-07 08:54:36
+  end_date: 2016-12-07 08:54:36
+  availablity: false
+
+two:
+  start_date: 2016-12-07 08:54:36
+  end_date: 2016-12-07 08:54:36
+  availablity: false

@@ -1,0 +1,13 @@
+<h1>İşcilerin işlemleri için sayfa</h1>
+
+<p>
+  Hoşgeldin
+</p><p>
+name:<%= current_worker.name %>
+</p><p>
+id: <%= current_worker.id %>
+</p>
+<p>
+worker_image url => <b> <%= current_worker.worker_image.url %> </b>
+<%= image_tag current_worker.worker_image.url(:medium) %>
+</p>

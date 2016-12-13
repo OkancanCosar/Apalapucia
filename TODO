@@ -1,0 +1,13 @@
+Appointment düzenleme yok
+reg_count kullanılmayacak
+
+
+
+izinler bakılacak (kim hangi module girebilir.)
+galeri modülü
+admin panel
+
+appointment düzenle olmazsa
+  eğer başvurunun zamanları değişirse season tablosu da değişmeli availability false olmalı
+  multiple trigger işlemi
+ihtiyacı kalmaz

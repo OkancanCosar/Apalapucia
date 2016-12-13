@@ -1,0 +1,1 @@
+json.partial! "announcaments/announcament", announcament: @announcament

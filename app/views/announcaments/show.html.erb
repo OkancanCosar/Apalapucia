@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @announcament.city %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @announcament.body %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @announcament.title %>
+</p>
+<p>
+  <strong>Company:</strong>
+  <%= Company.find(@announcament.company_id).name %>
+</p>
+<p>
+  <strong>Worker:</strong>
+  <%= Worker.find(@announcament.worker_id).name %>
+</p>
+
+<p>
+  <strong>Skills:</strong> <br>
+  <% @skills.each do |s| %>
+  <%= s.id %>  => <%= s.name %> <br>
+  <% end %>
+</p>
+
+<p>
+  <strong>Seasons:</strong> <br>
+  <% @seasons.each do |s| %>
+  <%= s.id %>  => <%= s.start_date %> <br>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_announcament_path(@announcament) %> |
+<%= link_to 'Back', announcaments_path %> |
+<%= link_to '=======get appointment=======', new_appointment_path(:an_id => @announcament.id) %>

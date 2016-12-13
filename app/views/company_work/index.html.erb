@@ -1,0 +1,21 @@
+<h1>Şirket işlemleri için sayfa</h1>
+<% if company_signed_in? %>
+
+<p>
+  Hoşgeldin
+</p><p>
+name:<%= current_company.name %>
+</p><p>
+id: <%= current_company.id %>
+</p><p>
+company_poster url => <b> <%=current_company.company_poster.url %> </b>
+<%= image_tag current_company.company_poster.url(:medium) %>
+</p><p>
+company_icon url => <b> <%=current_company.company_icon.url %> </b>
+<%= image_tag current_company.company_icon.url(:medium) %>
+</p>
+
+
+<% else %>
+  <%= link_to "Şirket Girişi Yap", new_company_session_path %>
+<% end %>

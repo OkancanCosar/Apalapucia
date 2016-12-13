@@ -1,0 +1,60 @@
+<%= form_for(announcament) do |f| %>
+  <% if announcament.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(announcament.errors.count, "error") %> prohibited this announcament from being saved:</h2>
+
+      <ul>
+      <% announcament.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :company_id, value: current_worker.company_id %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :worker_id, value: current_worker.id %>
+  </div>
+
+  <div class="form-group">
+        <% skils = Skill.all.map{|t| [t.name, t.id]}.sort %>
+        <%= f.select :skill_ids, skils,
+        { prompt: "Select some skill" },
+        {class: "form-control", multiple: true, size: 10 } %>
+        <p class="help-block">Select multiple with Ctrl</p>
+  </div>
+
+  <div class="form-group">
+        <% skils = Season.where(:worker_id => current_worker.id).map{|t| [t.start_date, t.end_date, t.id]}.sort %>
+        <%= f.select :season_ids, skils,
+        { prompt: "Select some skill" },
+        {class: "form-control", multiple: true, size: 10 } %>
+        <p class="help-block">Select multiple with Ctrl</p>
+  </div>
+
+  <div class="field">
+    <%= link_to "add new seasons", new_season_path %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

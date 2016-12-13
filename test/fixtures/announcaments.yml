@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  req_count: 1
+  body: MyText
+  company: one
+  worker: one
+  title: MyString
+
+two:
+  city: MyString
+  req_count: 1
+  body: MyText
+  company: two
+  worker: two
+  title: MyString

@@ -1,0 +1,39 @@
+<h3>company session</h3>
+<% if company_signed_in? %>
+  Hoşgeldin, <%= current_company.name %>
+  <%= link_to "Şirket Çıkışı", destroy_company_session_path, :method => 'delete' %> |
+  <%= link_to "Şirket işlemleri", company_work_path %> |
+  <%= link_to "Düzenle", edit_worker_registration_path %>
+<% else %>
+  <%= link_to "Şirket Girişi Yap", new_company_session_path %>
+<% end %>
+
+<hr>
+
+<h3>member session</h3>
+<% if member_signed_in? %>
+  Hoşgeldin, <%= current_member.name %>
+<br>
+<%  Announcament.all.each do |a| %>
+  <%= link_to a.title, new_appointment_path(:an_id => a.id) %> <br>
+<% end %>
+
+
+<%= link_to "Üye Çıkışı", destroy_member_session_path, :method => 'delete' %> |
+<%= link_to "Düzenle", edit_member_registration_path %>
+<% else %>
+  <%= link_to "Üye Girişi Yap", new_member_session_path %>
+<% end %>
+
+<hr>
+
+<h3>Worker session</h3>
+<% if worker_signed_in? %>
+  Hoşgeldin, <%= current_worker.name %>
+  <%= link_to "İşçi Çıkışı", destroy_worker_session_path, :method => 'delete' %> |
+  <%= link_to "İşçi işlemleri", worker_work_path %> |
+  <%= link_to "Düzenle", edit_worker_registration_path %> |
+  <%= link_to "ilan ekle", new_announcament_path%>
+<% else %>
+  <%= link_to "İşçi Girişi Yap", new_worker_session_path %>
+<% end %>

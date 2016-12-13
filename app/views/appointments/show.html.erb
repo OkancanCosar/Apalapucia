@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @appointment.body %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= Season.find(@appointment.season).start_date %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= Member.find(@appointment.member).name %>
+</p>
+
+<p>
+  <strong>Announcament:</strong>
+  <%= Announcament.find(@appointment.announcament).title %>
+</p>
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: false
+  company: one
+  worker: one
+
+two:
+  status: false
+  company: two
+  worker: two
