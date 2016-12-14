@@ -4,6 +4,8 @@ gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'hairtrigger'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin', github: 'activeadmin'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
