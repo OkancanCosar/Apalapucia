@@ -1,0 +1,31 @@
+<ul>
+    <% if company_signed_in? %>
+      <li role="presentation" class="active">
+          <%= link_to "Düzenle", edit_company_registration_path %>
+      </li>
+    <% else %>
+      <li role="presentation">
+          <%= link_to "Şirket Girişi Yap", new_company_session_path %>
+      </li>
+    <% end %>
+
+    <% if worker_signed_in? %>
+      <li role="presentation" class="active">
+          <%= link_to "Düzenle", edit_worker_registration_path %>
+      </li>
+    <% else %>
+      <li role="presentation">
+          <%= link_to "İşçi Girişi Yap", new_worker_session_path %>
+      </li>
+    <% end %>
+
+    <% if member_signed_in? %>
+      <li role="presentation" class="active">
+          <%= link_to "Düzenle", edit_member_registration_path %>
+      </li>
+    <% else %>
+      <li role="presentation">
+          <%= link_to "Üye Girişi Yap", new_member_session_path %>
+      </li>
+    <% end %>
+</ul>
