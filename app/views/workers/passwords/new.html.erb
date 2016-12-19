@@ -1,16 +1,22 @@
-<h2>Forgot your password?</h2>
+<body class="bodyarkasi">
+<div class="form" style="margin-left: 30%;margin-top: 3%">
+  <div class="">
+    <div id="login">
+      <h1>Şifrenimi Unuttun?</h1>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+          <div class="field-wrap">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+          <div class="button button-block">
+            <%= f.submit "Şifre bilgilerimi gönder" %>
+          </div>
+          </div>
+          </div><!-- tab-content -->
+      <% end %>
+      <%= render "workers/shared/links" %>
+      </div> <!-- /form -->
+<%= javascript_include_tag 'index' %>
+</body>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "workers/shared/links" %>
