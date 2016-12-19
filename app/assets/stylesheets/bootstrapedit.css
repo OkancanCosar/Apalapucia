@@ -4603,6 +4603,12 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-radius: 0;
   height: 50px;
 }
+.navbar-member {
+    background-color: deeppink;
+    border-color: deeppink;
+    border-radius: 0;
+    height: 50px;
+}
 .navbar-inverse2 {
   background-color: #dedae8;
   border-color: #dedae8;

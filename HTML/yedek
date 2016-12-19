@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse" style="margin-top: -50px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand" style="color: white"><%= link_to "Apalapucia",root_path  %></p>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <% if member_signed_in? %>
+          <li role="presentation" class="active">
+            <%= link_to "Düzenle", edit_member_registration_path %>
+          </li>
+      <% else %>
+          <li role="presentation">
+            <%= link_to "Üye Girişi Yap", new_member_session_path %>
+          </li>
+      <% end %>
+      <li>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+          Kurumsal</a>
+        <ul class="dropdown-menu">
+          <% if company_signed_in? %>
+              <li role="presentation" class="active">
+                <%= link_to "Düzenle", edit_company_registration_path %>
+              </li>
+          <% else %>
+              <li role="presentation">
+                <%= link_to "Şirket Girişi Yap", new_company_session_path %>
+              </li>
+          <% end %>
+          <% if worker_signed_in? %>
+              <li role="presentation" class="active">
+                <%= link_to "Düzenle", edit_worker_registration_path %>
+              </li>
+          <% else %>
+              <li role="presentation">
+                <%= link_to "İşçi Girişi Yap", new_worker_session_path %>
+              </li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
