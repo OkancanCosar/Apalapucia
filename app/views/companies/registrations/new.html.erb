@@ -1,49 +1,53 @@
-<h2>Sign up for Companies</h2>
-
+<body class="bodyarkasi2">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="form" style="margin-left: 30%;margin-top: 1%">
+  <ul class="tab-group">
+    <li class="tab active"><a href="#signup" style="width: 100%">Kayıt</a></li>
+  </ul>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+  <div class="">
 
-  <div class="field">
-    <%= f.label :bio %>
-    <%= f.text_field :bio %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :company_poster %>
-    <%= f.file_field :company_poster %>
-  </div>
-
-  <div class="field">
-    <%= f.label :company_icon %>
-    <%= f.file_field :company_icon %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <div id="signup">
+      <h1>Bedava Kayıt Olun</h1>
+        <p style="background: white"><%= devise_error_messages! %></p>
+        <div class="field-wrap">
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+        <div class="field-wrap">
+          <%= f.label :bio %>
+          <%= f.text_field :bio %>
+        </div>
+        <div class="field-wrap">
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
+        <div class="field-wrap">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="field-wrap">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+        <div class="field-wrap">
+          <%= f.label :company_poster %>
+        </div>
+        <div class="field-wrap">
+          <%= f.file_field :company_poster %>
+        </div>
+        <div class="field-wrap">
+          <%= f.label :company_icon %>
+        </div>
+        <div class="field-wrap">
+          <%= f.file_field :company_icon %>
+        </div>
+        <button type="submit" class="button button-block"/><%= f.submit "Kaydol" %></button>
 <% end %>
-
 <%= render "companies/shared/links" %>
+    </div>
+  </div><!-- tab-content -->
+
+</div> <!-- /form -->
+<%= javascript_include_tag 'index' %>
+</body>

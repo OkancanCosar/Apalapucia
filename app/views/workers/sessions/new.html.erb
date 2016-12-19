@@ -1,26 +1,30 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<body class="bodyarkasi">
+<div class="form" style="margin-left: 5%;margin-top: 3%">
+  <ul class="tab-group">
+    <li class="tab active"><a href="#login" style="width: 100%">Giriş</a></li>
+  </ul>
+  <div class="">
+    <div id="login">
+      <h1>Hoş Geldiniz!</h1>
+        <div class="field-wrap">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+        <div class="field-wrap">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="button button-block">
+          <%= f.submit "Giriş" %>
+        </div>
+  <% end %>
+<div class="forgot" style="margin-top: 5%">
+  <%= render "workers/shared/links" %>
+</div>
+</div>
+</div><!-- tab-content -->
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "workers/shared/links" %>
+</div> <!-- /form -->
+<%= javascript_include_tag 'index' %>
+</body>
