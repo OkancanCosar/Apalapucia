@@ -21,10 +21,11 @@
     <h2><center>Bizim ile Çalışan Firmalar</center></h2>
     <div class='col-md-8' style="margin-left: 17%">
       <div class="carousel slide media-carousel" id="media">
+
         <div class="carousel-inner">
           <div class="item  active">
             <div class="row ">
-                <% Company.all.each do |c|%>
+                <% Company.all.limit(3).each do |c|%>
                   <div class="col-md-4">
                     <img class="img-circle img-responsive img-center" src="<%=c.company_icon.url %>" alt="">
                     <center><h5><%= c.name %></h5></center>
@@ -79,62 +80,32 @@
     <div class="col-md-8">
       <div class="col-md-6 nopadding">
         <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 1</h3>
+          <img class="card-img-top" src=""><%= link_to(image_tag("hizmet_personeli.png"), root_path) %>
         </div>
       </div>
       <div class="col-md-6 nopadding">
         <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 2</h3>
+          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("isci.png"), root_path) %>
         </div>
       </div>
       <div class="col-md-6 nopadding">
         <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 3</h3>
+          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("mezun.png"), root_path) %>
         </div>
       </div>
       <div class="col-md-6 nopadding">
         <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 4</h3>
+          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("uzman.png"), root_path) %>
         </div>
       </div>
       <div class="col-md-6 nopadding">
         <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 5</h3>
+          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("yönetici.png"), root_path) %>
         </div>
       </div>
       <div class="col-md-6 nopadding">
         <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 6</h3>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 7</h3>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 8</h3>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 9</h3>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src="">
-          <h3>Yetenek 10</h3>
+          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("engelli.png"), root_path) %>
         </div>
       </div>
     </div>
