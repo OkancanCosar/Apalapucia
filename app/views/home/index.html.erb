@@ -24,21 +24,12 @@
         <div class="carousel-inner">
           <div class="item  active">
             <div class="row ">
-                <% Company.all.order("created_at DESC").limit(3).each do |c|%>
+                <% Company.all.each do |c|%>
                   <div class="col-md-4">
                     <img class="img-circle img-responsive img-center" src="<%=c.company_icon.url %>" alt="">
                     <center><h5><%= c.name %></h5></center>
                   </div>
                 <%end%>
-
-              <div class="col-md-4">
-                <img class="img-circle img-responsive img-center " src="http://placehold.it/300x300" alt="">
-                <center><h5>Firma #2</h5></center>
-              </div>
-              <div class="col-md-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-                <center><h5>Firma #3</h5></center>
-              </div>
             </div>
           </div>
           <div class="item">
@@ -71,27 +62,18 @@
   <div class="row text-center">
     <div class="col-md-4">
       <h4>Son İlanlar</h4>
+      <% Announcament.all.order("created_at DESC").limit(5).each do |c|%>
       <ul class="list-group">
-        <li class="list-group-item">First item</li>
-        <li class="list-group-item">Second item</li>
-        <li class="list-group-item">Third item</li>
-        <li class="list-group-item">Fourth item</li>
-        <li class="list-group-item">Five item</li>
+            <li class="list-group-item"><%=c.title %></li>
       </ul>
+        <%end%>
       <h4>Son ilan veren Firmalar</h4>
-      <div class="col-sm-6" style="margin-left:25%">
-
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-        <center><h6>Firma Adı</h6></center>
-      </div>
-      <div class="col-sm-6" style="margin-left: 25%">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-        <center><h6>Firma Adı</h6></center>
-      </div>
-      <div class="col-sm-6" style="margin-left: 25%">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-        <center><h6>Firma Adı</h6></center>
-      </div>
+      <% Company.all.order("created_at DESC").limit(3).each do |c|%>
+          <div class="col-md-6" style="margin-left:25%">
+            <img class="img-circle2 img-responsive" src="<%=c.company_icon.url %>" alt="">
+            <center><h5><%=c.name %></h6></h5></center>
+          </div>
+      <%end%>
     </div>
     <h4>Tüm Yetenekler</h4>
     <div class="col-md-8">
@@ -167,42 +149,4 @@
 </body>
 </html>
 
-<h3>company session</h3>
-<% if company_signed_in? %>
-  Hoşgeldin, <%= current_company.name %>
-  <%= link_to "Şirket Çıkışı", destroy_company_session_path, :method => 'delete' %> |
-  <%= link_to "Şirket işlemleri", company_work_path %> |
-  <%= link_to "Düzenle", edit_worker_registration_path %>
-<% else %>
-  <%= link_to "Şirket Girişi Yap", new_company_session_path %>
-<% end %>
 
-<hr>
-
-<h3>member session</h3>
-<% if member_signed_in? %>
-  Hoşgeldin, <%= current_member.name %>
-<br>
-<%  Announcament.all.each do |a| %>
-  <%= link_to a.title, new_appointment_path(:an_id => a.id) %> <br>
-<% end %>
-
-
-<%= link_to "Üye Çıkışı", destroy_member_session_path, :method => 'delete' %> |
-<%= link_to "Düzenle", edit_member_registration_path %>
-<% else %>
-  <%= link_to "Üye Girişi Yap", new_member_session_path %>
-<% end %>
-
-<hr>
-
-<h3>Worker session</h3>
-<% if worker_signed_in? %>
-  Hoşgeldin, <%= current_worker.name %>
-  <%= link_to "İşçi Çıkışı", destroy_worker_session_path, :method => 'delete' %> |
-  <%= link_to "İşçi işlemleri", worker_work_path %> |
-  <%= link_to "Düzenle", edit_worker_registration_path %> |
-  <%= link_to "ilan ekle", new_announcament_path%>
-<% else %>
-  <%= link_to "İşçi Girişi Yap", new_worker_session_path %>
-<% end %>

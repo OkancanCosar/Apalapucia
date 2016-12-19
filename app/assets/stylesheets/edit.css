@@ -14,12 +14,12 @@ html {
 }
 a {
     text-decoration: none;
-    color: whitesmoke;
+    color: white;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
 a:hover {
-    color: whitesmoke;
+    color: black;
 }
 
 .form {
@@ -80,7 +80,7 @@ label {
     -webkit-transform: translateY(6px);
     transform: translateY(6px);
     left: 13px;
-    color: rgba(255, 255, 255, 0.5);
+    color: black;
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
     -webkit-backface-visibility: hidden;
@@ -105,7 +105,13 @@ label.active .req {
 label.highlight {
     color: #ffffff;
 }
+.cardayari{
 
+    width: 500px;
+}
+.sacmayazilar{
+    color: black;
+}
 input, textarea {
     font-size: 22px;
     display: block;
@@ -115,7 +121,7 @@ input, textarea {
     background: none;
     background-image: none;
     border: 1px solid #a0b3b0;
-    color: #ffffff;
+    color: black;
     border-radius: 0;
     -webkit-transition: border-color .25s ease, box-shadow .25s ease;
     transition: border-color .25s ease, box-shadow .25s ease;

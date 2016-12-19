@@ -1,31 +1,31 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Announcaments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>City</th>
-      <th>Body</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container" style="margin-left: 650px;margin-bottom: 50px ">
+  <button type="button" class="btn btn-info"><%= link_to 'İlan Ekle', new_announcament_path %></button>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1" style="margin-left: 60px">
+    </div>
     <% @announcaments.each do |announcament| %>
-      <tr>
-        <td><%= announcament.city %></td>
-        <td><%= announcament.body %></td>
-        <td><%= announcament.title %></td>
-        <td><%= link_to 'Show', announcament %></td>
-        <td><%= link_to 'Edit', edit_announcament_path(announcament) %></td>
-        <td><%= link_to 'Destroy', announcament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-sm-3  ">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">İlan Başlığı:<%= announcament.title %></h4>
+          <p class="card-text">İlan İçeriği:<%= announcament.body %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Şehir: <%= announcament.city %></li>
+        </ul>
+        <div class="card-block">
+          <button type="button" class="btn btn-primary"><%= link_to 'Göster', announcament %></button>
+          <button type="button" class="btn btn-success"><%= link_to 'Düzenle', edit_announcament_path(announcament) %></button>
+          <button type="button" class="btn btn-danger"><%= link_to 'Sil', announcament, method: :delete, data: { confirm: 'Emin misin?' } %></button>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
+    <div class="col-sm-1">
+    </div>
+  </div>
+</div>
 
-<br>
 
-<%= link_to 'New Announcament', new_announcament_path %>
