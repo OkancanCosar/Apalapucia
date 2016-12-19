@@ -1126,9 +1126,9 @@ img {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 .img-rounded {
   border-radius: 6px;
@@ -1148,6 +1148,9 @@ img {
 }
 .img-circle {
   border-radius: 50%;
+}
+.img-circle2 {
+    border-radius: 0%;
 }
 hr {
   margin-top: 20px;
@@ -3576,9 +3579,9 @@ tbody.collapse.in {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  color: #fff;
+  color: #333;
   text-decoration: none;
-  background-color: #337ab7;
+  background-color: transparent;
   outline: 0;
 }
 .dropdown-menu > .disabled > a,
@@ -4604,8 +4607,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   height: 50px;
 }
 .navbar-member {
-    background-color: deeppink;
-    border-color: deeppink;
+     background-color: #f14848;
+     border-color: #f14848;
+     border-radius: 0;
+     height: 50px;
+ }
+.navbar-worker {
+    background-color: #597d9b;
+    border-color: #597d9b;
     border-radius: 0;
     height: 50px;
 }
