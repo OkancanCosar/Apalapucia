@@ -8,7 +8,8 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem "font-awesome-rails"
-
+gem 'bcrypt-ruby', '~> 3.0.0', :require => 'bcrypt'
+gem 'bcrypt'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'

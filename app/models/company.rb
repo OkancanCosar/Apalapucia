@@ -15,11 +15,11 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 # for paperclip
-  has_attached_file :company_poster, styles: { medium: "850x200#" }
+  has_attached_file :company_poster
   validates_attachment_content_type :company_poster, content_type: /\Aimage\/.*\Z/
 
 # for paperclip
-  has_attached_file :company_icon, styles: { medium: "90x90#", small: "20x20#" }
+  has_attached_file :company_icon
   validates_attachment_content_type :company_icon, content_type: /\Aimage\/.*\Z/
 
 end

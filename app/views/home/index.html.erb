@@ -24,10 +24,13 @@
         <div class="carousel-inner">
           <div class="item  active">
             <div class="row ">
-              <div class="col-md-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-                <center><h5>Firma #1</h5></center>
-              </div>
+                <% Company.all.order("created_at DESC").limit(3).each do |c|%>
+                  <div class="col-md-4">
+                    <img class="img-circle img-responsive img-center" src="<%=c.company_icon.url %>" alt="">
+                    <center><h5><%= c.name %></h5></center>
+                  </div>
+                <%end%>
+
               <div class="col-md-4">
                 <img class="img-circle img-responsive img-center " src="http://placehold.it/300x300" alt="">
                 <center><h5>Firma #2</h5></center>
@@ -77,6 +80,7 @@
       </ul>
       <h4>Son ilan veren Firmalar</h4>
       <div class="col-sm-6" style="margin-left:25%">
+
         <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
         <center><h6>Firma Adı</h6></center>
       </div>
@@ -154,19 +158,11 @@
     </div>
   </div>
   <hr>
-  <!-- Footer -->
-  <footer>
-    <div class="row">
-      <div class="col-lg-12">
-        <p><center>Footer Your Website</center></p>
-      </div>
-    </div>
-    <!-- /.row -->
-  </footer>
+
 
 </div>
 <%= javascript_include_tag 'jquery.js' %>
-<%= javascript_include_tag 'bootstrap.min' %>
+
 <!-- /.container -->
 </body>
 </html>
