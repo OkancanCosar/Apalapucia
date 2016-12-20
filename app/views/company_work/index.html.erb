@@ -1,21 +1,185 @@
-<h1>Şirket işlemleri için sayfa</h1>
 <% if company_signed_in? %>
-
-<p>
-  Hoşgeldin
-</p><p>
-name:<%= current_company.name %>
-</p><p>
-id: <%= current_company.id %>
-</p><p>
-company_poster url => <b> <%=current_company.company_poster.url %> </b>
-<%= image_tag current_company.company_poster.url(:medium) %>
-</p><p>
-company_icon url => <b> <%=current_company.company_icon.url %> </b>
-<%= image_tag current_company.company_icon.url(:medium) %>
-</p>
+<body>
+<div style="margin-top: -40px;">
+  <div class="fb-profile">
+    <img align="left" class="fb-image-lg" src=" <%=current_company.company_poster.url %>" style="height: 400px; width:100% ">
+    <img align="left" class="fb-image-profile thumbnail" src="<%=current_company.company_icon.url %>" alt="Profile image example"/>
+    <div align="left">
+      <center><h2><%= current_company.name %></h2></center>
+    </div>
+  </div>
+</div>
 
 
+<div class="row">
+  <!-- Onay Bekleyen   -->
+  <div class="col-md-5 nopaddingright" style="margin-left: 1%;margin-top: 5%">
+    <div class="panel panel-primary" style="">
+      <div class="panel-heading">Bekleyen Onaylar</div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div class="col-md-2 nopadding">
+              <img src="image/profile.png" style="width:60px;height: 50px;">
+            </div>
+            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
+            <div style="margin: 2%;margin-left: 25px"></div>
+            <button type="button" class="btn btn-success">Onayla</button>
+            <button type="button" class="btn btn-danger" >Sil</button>
+          </li>
+          <li class="list-group-item">
+            <div class="col-md-2 nopadding">
+              <img src="image/profile.png" style="width:60px;height: 50px;">
+            </div>
+            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
+            <div style="margin: 2%;margin-left: 25px"></div>
+            <button type="button" class="btn btn-success">Onayla</button>
+            <button type="button" class="btn btn-danger" >Sil</button>
+          </li>
+          <li class="list-group-item">
+            <div class="col-md-2 nopadding">
+              <img src="image/profile.png" style="width:60px;height: 50px;">
+            </div>
+            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
+            <div style="margin: 2%;margin-left: 25px"></div>
+            <button type="button" class="btn btn-success">Onayla</button>
+            <button type="button" class="btn btn-danger" >Sil</button>
+          </li>
+          <li class="list-group-item">
+            <div class="col-md-2 nopadding">
+              <img src="image/profile.png" style="width:60px;height: 50px;">
+            </div>
+            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
+            <div style="margin: 2%;margin-left: 25px"></div>
+            <button type="button" class="btn btn-success">Onayla</button>
+            <button type="button" class="btn btn-danger" >Sil</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Firma Çalışanları -->
+    <div class="fcalisan">
+      <div class="panel panel-danger" style="">
+        <div class="panel-heading">Firma Çalışanları</div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="col-md-2 nopadding ">
+                <img src="image/profile.png" style="width:60px;height: 50px;">
+              </div>
+              <p class="col-md-8"style="margin-top: 1%">Okancan <br> Bey</p>
+              <button type="button" class="btn btn-danger" style="margin: 2%;margin-left: 25px">Sil</button>
+            </li>
+            <li class="list-group-item">
+              <div class="col-md-2 nopadding ">
+                <img src="image/profile.png" style="width:60px;height: 50px;">
+              </div>
+              <p class="col-md-8"style="margin-top: 1%">Erdem <br> Bey</p>
+              <button type="button" class="btn btn-danger" style="margin: 2%;margin-left: 25px">Sil</button>
+            </li>
+            <li class="list-group-item">
+              <div class="col-md-2 nopadding ">
+                <img src="image/profile.png" style="width:60px;height: 50px;">
+              </div>
+              <p class="col-md-8"style="margin-top: 1%">Osman <br> Soldanyatan</p>
+              <button type="button" class="btn btn-danger" style="margin: 2%;margin-left: 25px">Sil</button>
+            </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Firma ilankarı -->
+  <div class="col-md-6" style="margin-left: 2%;margin-top: 5%">
+    <div class="panel panel-success" style="">
+      <div class="panel-heading">Firma İlanları<button type="button" class="btn btn-info" style="margin-left: 75%">Ekle</button></div>
+      <div class="panel-body">
+        <li class="list-group-item ">
+          <p class="col-md-5">İlan Başlığı Başlığı</p>
+          <button type="button" class="btn btn-default">Görüntüle</button>
+          <button type="button" class="btn btn-primary">Düzenle</button>
+          <button type="button" class="btn btn-success">Güncelle</button>
+          <button type="button" class="btn btn-danger">Sil</button>
+        </li>
+        <li class="list-group-item ">
+          <div class="gruplubut">
+            <p class="col-md-5">İlan Başlığı Başlığı</p>
+            <button type="button" class="btn btn-default">Görüntüle</button>
+            <button type="button" class="btn btn-primary">Düzenle</button>
+            <button type="button" class="btn btn-success">Güncelle</button>
+            <button type="button" class="btn btn-danger">Sil</button>
+          </div>
+        </li>
+        <li class="list-group-item ">
+          <div class="gruplubut">
+            <p class="col-md-5">İlan Başlığı Başlığı</p>
+            <button type="button" class="btn btn-default">Görüntüle</button>
+            <button type="button" class="btn btn-primary">Düzenle</button>
+            <button type="button" class="btn btn-success">Güncelle</button>
+            <button type="button" class="btn btn-danger">Sil</button>
+          </div>
+        </li>
+
+      </div>
+    </div>
+    <!-- Galeri -->
+    <div class="ilanlar">
+      <div class="panel panel-warning">
+        <div class="panel-heading">Galeri <button type="button" class="btn btn-info" style="margin-left: 83%">Ekle</button></div>
+        <div class="panel-body">
+          <li class="list-group-item">
+            <div class="col-md-2 nopadding">
+              <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
+            </div>
+            <p class="col-md-9" style="margin-top: 3%">Osman <br> Soldanyatan</p>
+            <button type="button" class="btn btn-default" style="margin-left: 2%">Görüntüle</button>
+            <button type="button" class="btn btn-primary">Düzenle</button>
+            <button type="button" class="btn btn-success">Güncelle</button>
+            <button type="button" class="btn btn-danger">Sil</button>
+          </li>
+          <li class="list-group-item">
+            <div class="col-md-2 nopadding">
+              <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
+            </div>
+            <p class="col-md-9" style="margin-top: 3%">Osman <br> Soldanyatan</p>
+            <button type="button" class="btn btn-default"style="margin-left: 2%">Görüntüle</button>
+            <button type="button" class="btn btn-primary">Düzenle</button>
+            <button type="button" class="btn btn-success">Güncelle</button>
+            <button type="button" class="btn btn-danger">Sil</button>
+          </li>
+          <li class="list-group-item">
+            <div class="col-md-2 nopadding">
+              <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
+            </div>
+            <p class="col-md-9" style="margin-top: 3%">Osman <br> Soldanyatan</p>
+            <button type="button" class="btn btn-default"style="margin-left: 2%">Görüntüle</button>
+            <button type="button" class="btn btn-primary">Düzenle</button>
+            <button type="button" class="btn btn-success">Güncelle</button>
+            <button type="button" class="btn btn-danger">Sil</button>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer>
+  <div class="row">
+    <div class="col-lg-12">
+      <p><center>Footer Your Website</center></p>
+    </div>
+  </div>
+  <!-- /.row -->
+</footer>
+
+</div>
+<!-- /.container -->
+
+</body>
 <% else %>
-  <%= link_to "Şirket Girişi Yap", new_company_session_path %>
+    <%= link_to "Şirket Girişi Yap", new_company_session_path %>
 <% end %>

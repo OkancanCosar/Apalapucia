@@ -9,11 +9,15 @@
         <div id="login">
           <h1>Hoş Geldiniz!</h1>
             <div class="field-wrap">
-              <%= f.label :email %>
+              <label>
+                Email Address<span class="req">*</span>
+              </label>
               <%= f.email_field :email, autofocus: true %>
             </div>
             <div class="field-wrap">
-              <%= f.label :password %>
+              <label>
+                Şifre<span class="req">*</span>
+              </label>
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
             <div class="button button-block">

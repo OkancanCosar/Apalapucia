@@ -1,72 +1,65 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<body class="bodyarkasi2">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-      <%= f.label :company_id %><br />
-      <%= f.collection_select(:company_id, @comps, :id, :name, :include_blank => "Please select a company...") %>
-  </div>
-  <div class="field">
-    <%= f.label :worker_image %>
-    <%= f.file_field :worker_image %>
-  </div>
-
-  <div class="form-group">
-        <% skils = Skill.all.map{|t| [t.name, t.id]}.sort %>
-        <%= f.select :skill_ids, skils,
-        { prompt: "Select some skill" },
-        {class: "form-control", multiple: true, size: 10 } %>
-        <p class="help-block">Select multiple with Ctrl</p>
-      </div>
-
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <div class="form" style="margin-left: 30%;margin-top: 1%">
+      <div class="">
+        <div id="signup">
+          <h1>Düzenle</h1>
+          <p style="background: white"><%= devise_error_messages! %></p>
+          <div class="field-wrap">
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true %>
+          </div>
+          <div class="field-wrap">
+            <%= f.label :lastname %>
+            <%= f.text_field :lastname %>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          <div class="field-wrap">
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+          </div>
+          <div class="field-wrap">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+          <div class="field-wrap">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+          <div class="field-wrap">
+            <%= f.label :current_password %>
+            <%= f.password_field :current_password, autocomplete: "off" %>
+          </div>
+          <div class="field">
+            <div class="field-wrap" style="margin-bottom: 5px"> <%= f.label :description %></div>
+            <%= f.text_area :description %>
+          </div>
+          <div class="field">
+            <div class="field-wrap" style="margin-bottom: 5px"><%= f.label :company_id %></div>
+            <%= f.collection_select(:company_id, @comps, :id, :name, :include_blank => "Firmanızı seçiniz...") %>
+          </div>
+          <div class="field-wrap" style="margin-bottom: 5px">
+            <%= f.label :worker_image %>
+          </div>
+          <div class="field-wrap">
+            <%= f.file_field :worker_image %>
+          </div>
+          <div class="form-group">
+            <% skils = Skill.all.map{|t| [t.name, t.id]}.sort %>
+            <%= f.select :skill_ids, skils,
+                         { prompt: "Select some skill" },
+                         {class: "form-control", multiple: true, size: 10 } %>
+            <p class="help-block">Select multiple with Ctrl</p>
+          </div>
+          <button type="submit" class="button button-block"/> <%= f.submit "Update" %></button>
+          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <%= link_to "Back", :back %>
 <% end %>
-<hr>
-<h3>Cancel my account</h3>
+</div>
+</div><!-- tab-content -->
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div> <!-- /form -->
+<%= javascript_include_tag 'index' %>
+</body>
