@@ -80,7 +80,7 @@ label {
     -webkit-transform: translateY(6px);
     transform: translateY(6px);
     left: 13px;
-    color: black;
+    color: white;
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
     -webkit-backface-visibility: hidden;
