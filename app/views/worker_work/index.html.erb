@@ -1,4 +1,3 @@
-
 <body class="w3-theme-l5">
 
 <!-- Navbar -->
@@ -9,7 +8,7 @@
 </div>
 
 <!-- Page Container -->
-<div class="w3-container w3-content " style="max-width:1400px;margin-top:80px">
+<div class="w3-container w3-content " style="max-width:1400px;">
   <!-- The Grid -->
   <div class="w3-row">
     <!-- Left Column -->
@@ -17,14 +16,16 @@
       <!-- Profile -->
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-          <button type="button" class="btn btn-default" style="margin-left: 89%;margin-top: 5px">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+          <button type="button" class="btn btn-default" style="margin-left: 73%;margin-top: 5px;">
+              <div class="glyphicon glyphicon-pencil" aria-hidden="true">
+                <%= link_to "Duzenle", edit_worker_registration_path %>
+              </div>
           </button>
           <h4 class="w3-center">Profile Adı</h4>
-          <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Resim"></p>
+          <p class="w3-center"><img src="<%= current_worker.worker_image.url %>" class="w3-circle" style="height:106px;width:106px" alt="Resim"></p>
           <hr>
-          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Adı Soyadı</p>
-          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Firma</p>
+          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Adı Soyadı:<%= current_worker.name %></p>
+          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Firma:<%= current_worker.company %></p>
         </div>
       </div>
       <br>
@@ -68,13 +69,17 @@
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
               <!--<h6 class="w3-opacity">Vermiş olduğun iş ilanlarını ara</h6>-->
-              <input  class="w3-border w3-padding" style="width: 90%" />
-              <button type="button" class="w3-btn w3-theme-d6" style="height: 38px;margin-top: -2px">Ara</button>
-            </div>
+              <div class="col-md-11" style="margin-left: -20px;padding-right: 0px">
+                <input  class="w3-border w3-padding" style="width: 100%" />
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="w3-btn w3-theme-d6 right" style="height: 38px;margin-left:-1px">Ara</button>
+              </div>
+              </div>
           </div>
         </div>
       </div>
-      <button type="button" class="w3-btn w3-theme-d6" style="height: 38px;margin-top: 2%;margin-left: 16px">İlan ekle</button>
+      <button type="button" class="w3-btn w3-theme-d6" style="height: 38px;margin-top: 2%;margin-left: 16px"><%= link_to 'İlan ekle', announcaments_path %></button>
       <!-- İlan 1 -->
       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
         <span class="w3-left w3-opacity-min"> İlan 1</span>
@@ -100,7 +105,7 @@
               <span class="w3-tag w3-small w3-theme-l5">Photos</span>
             </p>
             <div id="butonlar">
-              <button type="button" class="w3-btn  w3-theme-d2 w3-margin-bottom" style="margin-left: 62%">Sil</button>
+              <button type="button" class="w3-btn  w3-theme-d2 w3-margin-bottom" style="margin-left: 58%">Sil</button>
               <button type="button" class="w3-btn  w3-theme-d7 w3-margin-bottom" style="">Düzenle</button>
               <button type="button" class="w3-btn  w3-theme-d6 w3-margin-bottom" style="">Detay</button>
             </div>
@@ -132,7 +137,7 @@
               <span class="w3-tag w3-small w3-theme-l5">Photos</span>
             </p>
             <div id="butonlar2">
-              <button type="button" class="w3-btn  w3-theme-d2 w3-margin-bottom" style="margin-left: 62%">Sil</button>
+              <button type="button" class="w3-btn  w3-theme-d2 w3-margin-bottom" style="margin-left: 58%">Sil</button>
               <button type="button" class="w3-btn  w3-theme-d7 w3-margin-bottom" style="">Düzenle</button>
               <button type="button" class="w3-btn  w3-theme-d6 w3-margin-bottom" style="">Detay</button>
             </div>
@@ -164,7 +169,7 @@
               <span class="w3-tag w3-small w3-theme-l5">Photos</span>
             </p>
             <div id="butonlar3">
-              <button type="button" class="w3-btn  w3-theme-d2 w3-margin-bottom" style="margin-left: 62%">Sil</button>
+              <button type="button" class="w3-btn  w3-theme-d2 w3-margin-bottom" style="margin-left: 58%">Sil</button>
               <button type="button" class="w3-btn  w3-theme-d7 w3-margin-bottom" style="">Düzenle</button>
               <button type="button" class="w3-btn  w3-theme-d6 w3-margin-bottom" style="">Detay</button>
             </div>
@@ -203,19 +208,6 @@
 <br>
 
 </body>
-<<<<<<< HEAD
-=======
-<h1>İşcilerin işlemleri için sayfa</h1>
 
-<p>
-  Hoşgeldin
-</p><p>
-name:<%= current_worker.name %>
-</p><p>
 id: <%= current_worker.id %>
-</p>
-<p>
-worker_image url => <b> <%= current_worker.worker_image.url %> </b>
-<%= image_tag current_worker.worker_image.url(:medium) %>
-</p>
->>>>>>> c9615a3768ab7c6b99f1829bdc94d264d994e97a
+
