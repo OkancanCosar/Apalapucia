@@ -31,12 +31,12 @@
         <div class="field-wrap nopadding">
           <%= f.label :Company %>
         </div>
-        <div class="field-wrap" style="margin-left: 2%">
-          <%= f.collection_select(:company_id, @comps, :id, :name, :include_blank => "Please select a company...") %>
-        </div>
         <div class="field-wrap">
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+        <div class="field-wrap" style="margin-left: 2%">
+          <%= f.collection_select(:company_id, @comps, :id, :name, :include_blank => "Please select a company...") %>
         </div>
         <div class="actions button button-block">
           <%= f.submit "Sign up" %>

@@ -1,61 +1,53 @@
+
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+  <ul class="w3-navbar w3-theme-d6 w3-left-align w3-large">
+    <li><a href="index.html" class="w3-padding-large w3-theme-d6">Apalapucia</a></li>
+  </ul>
+</div>
+
 <!-- Page Container -->
-<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
-    <!-- The Grid -->
-    <div class="w3-row">
-        <!-- Left Column -->
-        <div class="w3-col m3">
-            <!-- Profile -->
-            <div class="w3-card-2 w3-round w3-white">
-                <div class="w3-container">
-                    <button type="button" class="btn btn-default" style="margin-left: 89%;margin-top: 5px">
-                        <span>
-                            <%= link_to "", edit_worker_registration_path, class: "fa fa-pencil" %>
-                        </span>
-                    </button>
-                    <h4 class="w3-center">
-                        <%= current_worker.name %>
-                    </h4>
-                    <p class="w3-center"><img src="<%= current_worker.worker_image.url %>" class="w3-circle" style="height:106px;width:106px" alt="Resim"></p>
-                    <hr>
-                    <p>
-                        <i class="fa fa-fw w3-margin-right w3-text-theme"></i><%= current_worker.name %>
-                        <%= current_worker.lastname %></p>
-                    <p>
-                        <i class="fa fa-fw w3-margin-right w3-text-theme"></i>
-                        <%= @firm.name %>
-                    </p>
-                </div>
-            </div>
-            <br>
-            <!-- Interests -->
-            <div class="w3-card-2 w3-round w3-white w3-hide-small">
-                <div class="w3-container">
-                    <p>Çalışanın Yetenekleri</p>
-                    <p>
-                        <% if @yetenekler.present? %>
-                        <% @yetenekler.each do |y| %>
-                        <span class="w3-tag w3-small w3-theme-d5"><%= y.name %></span>
-                        <% end %>
-                    <% else %>
-                        There is no skill
-                        <% end %>
-                    </p>
-                </div>
-            </div>
-            <br>
+<div class="w3-container w3-content " style="max-width:1400px;">
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+          <button type="button" class="btn btn-default" style="margin-left: 73%;margin-top: 5px;">
+              <div class="glyphicon glyphicon-pencil" aria-hidden="true">
+                <%= link_to "Duzenle", edit_worker_registration_path %>
+              </div>
+          </button>
+          <h4 class="w3-center">Profile Adı</h4>
+          <p class="w3-center"><img src="<%= current_worker.worker_image.url %>" class="w3-circle" style="height:106px;width:106px" alt="Resim"></p>
+          <hr>
+          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Adı Soyadı:<%= current_worker.name %></p>
+          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Firma:<%= current_worker.company %></p>
+        </div>
+      </div>
+      <br>
+      <!-- Interests -->
+      <div class="w3-card-2 w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Çalışanın Yetenekleri</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">News</span>
+            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+            <span class="w3-tag w3-small w3-theme-d3">Games</span>
+            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
+            <span class="w3-tag w3-small w3-theme">Games</span>
+            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+            <span class="w3-tag w3-small w3-theme-l2">Food</span>
+            <span class="w3-tag w3-small w3-theme-l3">Design</span>
+            <span class="w3-tag w3-small w3-theme-l4">Art</span>
+            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+          </p>
 
-            <!-- Alert Box -->
-            <div class="w3-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-                <span onclick="this.parentElement.style.display='none'" class="w3-hover-text-grey w3-closebtn">
-                    <i class="fa fa-remove"></i>
-                </span>
-                <p>
-                    <strong>Hey!</strong>
-                </p>
-                <p>People are looking at your profile. Find out who.</p>
-            </div>
-
-            <!-- End Left Column -->
         </div>
 
         <!-- Middle Column -->
@@ -83,7 +75,6 @@
                 <span class="w3-right w3-opacity">
                     <%= i.created_at.strftime('%B %d, %Y %H:%M') %>
                 </span>
-
                 <p>
                     <%= i.body.html_safe %>
                 </p>
@@ -116,8 +107,8 @@
             There is no announcament
             <% end %>
 
-        </div>
 
+        </div>
         <!-- Right Column -->
         <div class="w3-col m3">
             <div class="w3-card-2 w3-round w3-white w3-center">
@@ -149,3 +140,4 @@
     </div>
     <!-- End Page Container -->
 </div>
+<br>
