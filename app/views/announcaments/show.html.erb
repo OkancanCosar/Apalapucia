@@ -6,7 +6,7 @@
       <div class="card">
         <ul class="list-group list-group-flush">
           <li class="list-group-item"> <strong>City:</strong> <%= @announcament.city %></li>
-          <li class="list-group-item"> <strong>Body:</strong><%= @announcament.body %></li>
+          <li class="list-group-item"> <strong>Body:</strong><%= @announcament.body.html_safe %></li>
           <li class="list-group-item"><strong>Company:</strong> <%= Company.find(@announcament.company_id).name %></li>
           <li class="list-group-item"><strong>Worker:<%= Worker.find(@announcament.worker_id).name %></li>
           <li class="list-group-item"><strong>Skills:</strong><%= @announcament.title %> <% @skills.each do |s| %>
@@ -29,4 +29,3 @@
     </div>
   </div>
 </div>
-

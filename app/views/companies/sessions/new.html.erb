@@ -1,5 +1,6 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <body class="bodyarkasi2">
+
+  <body class="bodyarkasi2">
     <div class="form" style="margin-left: 50%;margin-top: 3%">
       <ul class="tab-group">
         <li class="tab active"><a href="#login" style="width: 100%">Giriş</a></li>
@@ -7,29 +8,30 @@
       <div class="">
         <div id="login">
           <h1>Hoş Geldiniz!</h1>
-            <div class="field-wrap">
-              <label>
-                Email Address<span class="req">*</span>
-              </label>
-              <%= f.email_field :email, autofocus: true %>
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+          <div class="field-wrap">
+            <label>
+              Şifre<span class="req">*</span>
+            </label>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+          <div class="button button-block">
+            <%= f.submit "Giriş" %>
+          </div>
+          <% end %>
+            <div class="forgot" style="margin-top: 5%">
+              <%= render "companies/shared/links" %>
             </div>
-            <div class="field-wrap">
-              <label>
-                Şifre<span class="req">*</span>
-              </label>
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-            <div class="button button-block">
-              <%= f.submit "Giriş" %>
-            </div>
-<% end %>
-<div class="forgot" style="margin-top: 5%">
-  <%= render "companies/shared/links" %>
-</div>
-</div>
-</div><!-- tab-content -->
+        </div>
+      </div>
+      <!-- tab-content -->
 
-</div> <!-- /form -->
-<%= javascript_include_tag 'index' %>
-</body>
-
+    </div>
+    <!-- /form -->
+    <%= javascript_include_tag 'index' %>
+  </body>
