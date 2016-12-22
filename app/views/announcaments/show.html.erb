@@ -1,31 +1,44 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
-    </div>
-    <div class="col-sm-4">
       <div class="card">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"> <strong>City:</strong> <%= @announcament.city %></li>
-          <li class="list-group-item"> <strong>Body:</strong><%= @announcament.body.html_safe %></li>
-          <li class="list-group-item"><strong>Company:</strong> <%= Company.find(@announcament.company_id).name %></li>
-          <li class="list-group-item"><strong>Worker:<%= Worker.find(@announcament.worker_id).name %></li>
-          <li class="list-group-item"><strong>Skills:</strong><%= @announcament.title %> <% @skills.each do |s| %>
-                <%= s.id %>  => <%= s.name %> <br>
-            <% end %>
+          <li class="list-group-item"> <strong>Title:</strong>
+            <%= @announcament.title %>
           </li>
-          <li class="list-group-item"><strong>Seasons:</strong>   <% @seasons.each do |s| %>
-                <%= s.id %>  => <%= s.start_date %> <br>
-            <% end %>
+          <li class="list-group-item"> <strong>City:</strong>
+            <%= @announcament.city %>
+          </li>
+          <li class="list-group-item"> <strong>Body:</strong>
+            <%= @announcament.body.html_safe %>
+          </li>
+          <li class="list-group-item"><strong>Owner:</strong>
+            <%= @auth.name %> <%= @auth.lastname %>
+          </li>
+          <li class="list-group-item"><strong>Skills:</strong>
+            <% if @skills.present? %>
+              <% @skills.each do |y| %>
+                <%= link_to y.name, ilanlar_path(:skillID => y.id), class: "w3-tag w3-small w3-theme-d5" %>
+                  <% end %>
+                    <% else %>
+                      There is no skill
+                      <% end %>
+          </li>
+          <li class="list-group-item"><strong>Seasons:</strong>
+            <% @seasons.each do |s| %>
+                <%= s.start_date.strftime('%B %d, %Y %H:%M') %>
+                  <% end %>
           </li>
           <div class="card-block" style="margin-left: 35px;margin-top: 15px">
-            <button type="button" class="btn btn-success"><%= link_to 'Edit', edit_announcament_path(@announcament) %> </button>
-            <button type="button" class="btn btn-info"><%= link_to 'Back', announcaments_path %> </button>
-            <button type="button" class="btn btn-warning"> <%= link_to '=======Başvuru Yap=======', new_appointment_path(:an_id => @announcament.id) %></button>
+            <% if @owner %>
+              <%= link_to 'Edit', edit_announcament_path(@announcament), :class => "btn btn-success" %>
+              <%= link_to 'Destroy', @announcament, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+            <% end %>
+              <%= link_to 'Başvuru Yap', new_appointment_path(:an_id => @announcament.id), :class => "btn btn-info" %>
           </div>
+
         </ul>
       </div>
-    </div>
-    <div class="col-sm-1">
     </div>
   </div>
 </div>

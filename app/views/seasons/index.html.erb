@@ -2,7 +2,7 @@
 
 <h1>Seasons</h1>
 
-<table>
+<table  border="1" class="container" style="margin:10px">
   <thead>
     <tr>
       <th>Start date</th>
@@ -14,8 +14,8 @@
   <tbody>
     <% @seasons.each do |season| %>
       <tr>
-        <td><%= season.start_date %></td>
-        <td><%= season.end_date %></td>
+        <td><%= season.start_date.strftime('%B %d, %Y %H:%M') %></td>
+        <td><%= season.end_date.strftime('%B %d, %Y %H:%M') %></td>
         <td><%= link_to 'Show', season %></td>
         <td><%= link_to 'Edit', edit_season_path(season) %></td>
         <td><%= link_to 'Destroy', season, method: :delete, data: { confirm: 'Are you sure?' } %></td>

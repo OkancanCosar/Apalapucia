@@ -4,28 +4,37 @@
       <h2><%= pluralize(season.errors.count, "error") %> prohibited this season from being saved:</h2>
 
       <ul>
-      <% season.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% season.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.hidden_field :worker_id, value: current_worker.id %>
-  </div>
+      <div class="" style="padding: 50px; margin-top:-100px">
+        <div class="form-group">
+          <div class="field-wrap">
+            <span style="color:red"> Start date </span>
+            <br>
+            <%= f.datetime_select :start_date %>
+          </div>
+        </div>
+      </div>
+      <%= f.hidden_field :worker_id, value: @owner %>
 
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.datetime_select :start_date %>
-  </div>
+        <div class="" style="padding: 50px; margin-top:-100px">
+          <div class="form-group">
+            <div class="field-wrap">
+              <span style="color:red"> End date </span>
+              <br>
+              <%= f.datetime_select :end_date %>
+            </div>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :end_date %>
-    <%= f.datetime_select :end_date %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+        <button type="button" class="btn btn-primary" style="margin: 50px; margin-top:-100px">
+          <%= f.submit %>
+        </button>
+        <% end %>

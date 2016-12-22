@@ -10,8 +10,12 @@ class SeasonsController < ApplicationController
   # GET /seasons
   # GET /seasons.json
   def index
-      @seasons = Season.all
-
+    if company_signed_in?
+      @owner = Worker.where(:company_id => current_company.id)[0]
+      @seasons = @owner.seasons
+    else
+      @seasons = current_worker.seasons
+    end
   end
 
   # GET /seasons/1
@@ -22,10 +26,22 @@ class SeasonsController < ApplicationController
   # GET /seasons/new
   def new
     @season = Season.new
+
+    if company_signed_in?
+        @owner = Worker.where(:company_id => current_company.id)[0]
+    else
+        @owner = current_worker.id
+    end
+
   end
 
   # GET /seasons/1/edit
   def edit
+    if company_signed_in?
+        @owner = Worker.where(:company_id => current_company.id)[0]
+    else
+        @owner = current_worker.id
+    end
   end
 
   # POST /seasons

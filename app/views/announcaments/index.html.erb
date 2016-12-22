@@ -1,5 +1,5 @@
 <div class="container" style="margin-left: 650px;margin-bottom: 50px ">
-  <button type="button" class="btn btn-info"><%= link_to 'İlan Ekle', new_announcament_path %></button>
+  <%= link_to 'İlan Ekle', new_announcament_path, :class => "btn btn-info" %>
 </div>
 <div class="container">
   <div class="row">
@@ -10,15 +10,17 @@
       <div class="card">
         <div class="card-block">
           <h4 class="card-title">İlan Başlığı:<%= announcament.title %></h4>
-          <p class="card-text">İlan İçeriği:<%= announcament.body %></p>
+          <p class="card-text">İlan İçeriği:<%= announcament.body.html_safe %></p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Şehir: <%= announcament.city %></li>
         </ul>
         <div class="card-block">
-          <button type="button" class="btn btn-primary"><%= link_to 'Göster', announcament %></button>
-          <button type="button" class="btn btn-success"><%= link_to 'Düzenle', edit_announcament_path(announcament) %></button>
-          <button type="button" class="btn btn-danger"><%= link_to 'Sil', announcament, method: :delete, data: { confirm: 'Emin misin?' } %></button>
+          <%= link_to 'Göster', announcament, :class => "btn btn-primary" %>
+          <% if worker_signed_in? || company_signed_in? %>
+          <%= link_to 'Düzenle', edit_announcament_path(announcament), :class => "btn btn-success" %>
+          <%= link_to 'Sil', announcament, method: :delete, data: { confirm: 'Emin misin?' }, :class => "btn btn-danger" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -27,5 +29,3 @@
     </div>
   </div>
 </div>
-
-

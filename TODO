@@ -2,4 +2,9 @@ Appointment düzenleme yok
 reg_count kullanılmayacak
 
 
-galeri modülü
+galeri modülü yok
+
+announcament controller show action da tüm season lar görünüyor. availability=true kontrolü lazım.
+new appointment bölümünde de  availability=true kontrolü lazım.
+
+find bölümleri çalışmıyor.

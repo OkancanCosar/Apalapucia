@@ -7,34 +7,34 @@
       <!-- Profile -->
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-          <button type="button" class="btn btn-default" style="margin-left: 90%;margin-top: 5px;">
-            <%= link_to "", edit_worker_registration_path, class: "fa fa-pencil" %>
-          </button>
-          <h4 class="w3-center">Profile Adı</h4>
-          <p class="w3-center"><img src="<%= current_worker.worker_image.url %>" class="w3-circle" style="height:106px;width:106px" alt="Resim"></p>
-          <hr>
-          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Adı Soyadı:
-            <%= current_worker.name %>
-              <%= current_worker.lastname %>
-          </p>
-          <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Firma:
-            <%= @firm.name %>
-          </p>
+          <%= link_to "", edit_worker_registration_path, class: "btn btn-default fa fa-pencil",
+          style: "margin-left: 90%;margin-top: 5px;" %>
+            <h4 class="w3-center"> <%= current_worker.email %> </h4>
+            <p class="w3-center"><img src="<%= current_worker.worker_image.url %>"
+              class="w3-circle" style="height:106px;width:106px" alt="Resim"></p>
+            <hr>
+            <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Name Surname:
+              <%= current_worker.name %>
+                <%= current_worker.lastname %>
+            </p>
+            <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Firm:
+              <%= @firm.name %>
+            </p>
         </div>
       </div>
       <br>
       <!-- Interests -->
       <div class="w3-card-2 w3-round w3-white w3-hide-small">
         <div class="w3-container">
-          <p>Çalışanın Yetenekleri</p>
+          <p>Worker skills</p>
           <p>
             <% if @yetenekler.present? %>
               <% @yetenekler.each do |y| %>
-                <span class="w3-tag w3-small w3-theme-d5"><%= y.name %></span>
-                <% end %>
-                  <% else %>
-                    There is no skill
-                    <% end %>
+                <%= link_to y.name, ilanlar_path(:skillID => y.id), class: "w3-tag w3-small w3-theme-d5" %>
+                  <% end %>
+                    <% else %>
+                      There is no skill
+                      <% end %>
           </p>
         </div>
       </div>
@@ -59,10 +59,8 @@
           </div>
         </div>
       </div>
-      <button type="button" class="w3-btn w3-theme-d6" style="height: 38px;margin-top: 2%;margin-left: 16px">
-        <%= link_to 'İlan ekle', new_announcament_path %>
-      </button>
-
+        <%= link_to 'İlan ekle', new_announcament_path,
+        class: "w3-btn w3-theme-d6", style: "height: 38px;margin-top: 2%;margin-left: 16px" %>
       <!-- İlan 1 -->
       <% if @ilanlar.present? %>
         <% @ilanlar.each do |i| %>
@@ -70,7 +68,7 @@
             <br>
             <span class="w3-left w3-opacity-min"> <%= i.title %> </span>
             <span class="w3-right w3-opacity"> <%= i.created_at.strftime('%B %d, %Y %H:%M') %> </span>
-            <p>
+            <p> <br>
               <%= i.body.html_safe %>
             </p>
             <div class="w3-container">
@@ -81,17 +79,20 @@
                 <p> Aranan Yetenekler</p>
                 <p>
                   <% if i.skill.present? %>
-                    <% i.skills.each do |is| %>
-                      <span class="w3-tag w3-small w3-theme-d5"><%= is.name %></span>
-                      <% end %>
-                        <% else %>
-                          There is no skill
-                          <% end %>
+                    <% i.skill.each do |y| %>
+                      <%= link_to y.name, ilanlar_path(:skillID => y.id), class: "w3-tag w3-small w3-theme-d5" %>
+                        <% end %>
+                          <% else %>
+                            There is no skill
+                            <% end %>
                 </p>
                 <div id="butonlar">
-                  <button type="button" class="w3-btn  w3-theme-d2 w3-margin-bottom" style="margin-left: 62%">Sil</button>
-                  <button type="button" class="w3-btn  w3-theme-d7 w3-margin-bottom" style="">Düzenle</button>
-                  <button type="button" class="w3-btn  w3-theme-d6 w3-margin-bottom" style="">Detay</button>
+                  <%= link_to 'Detay', i, :class => "w3-btn  w3-theme-d6 w3-margin-bottom" %>
+                  <%= link_to 'Düzenle', edit_announcament_path(i), :class => "w3-btn  w3-theme-d7 w3-margin-bottom" %>
+                  <%= link_to 'Sil', i, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-btn  w3-theme-d2 w3-margin-bottom" %>
+
+
+
                 </div>
               </div>
             </div>
@@ -107,14 +108,17 @@
     <div class="w3-col m3">
       <div class="w3-card-2 w3-round w3-white w3-center">
         <div class="w3-container">
-          <p><strong> <%= @firm.name %> </strong></p>
+          <p class="w3-center">
+            <%= link_to ilanlar_path(:compID => @firm.id) do %>
+              <%= image_tag @firm.company_icon.url, :class => "w3-circle",style: "height:106px;width:106px;margin-top:20px" %>
+                <p>
+                  <strong> <%= @firm.name %> </strong>
+                </p>
+                <% end %>
+          </p>
           <p>
             <%= @firm.bio.html_safe %>
           </p>
-          <br>
-          <br>
-          <br>
-          <br>
         </div>
       </div>
       <br>

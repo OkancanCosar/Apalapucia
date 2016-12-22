@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @appointment.body %>
+<p id="notice">
+  <%= notice %>
 </p>
+<div class="container" style="margin:20px">
+  <p>
+    <strong>Body:</strong>
+    <%= @appointment.body.html_safe %>
+  </p>
 
-<p>
-  <strong>Season:</strong>
-  <%= Season.find(@appointment.season).start_date %>
-</p>
+  <p>
+    <strong>Season:</strong>
+    <% if @appointment.season_id.present? %>
+      <%= @sea.start_date.strftime('%B %d, %Y %H:%M') %>
+        <% else %>
+          No season
+          <% end %>
+  </p>
 
-<p>
-  <strong>Member:</strong>
-  <%= Member.find(@appointment.member).name %>
-</p>
+  <p>
+    <strong>Member:</strong>
+    <%= @me.name %> <%= @me.lastname %>
+  </p>
 
-<p>
-  <strong>Announcament:</strong>
-  <%= Announcament.find(@appointment.announcament).title %>
-</p>
-
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+  <p>
+    <strong>Announcament:</strong>
+    <%= @ans.title %>
+  </p>
+</div>
