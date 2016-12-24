@@ -27,20 +27,16 @@ class AppointmentsController < ApplicationController
         # tüm announcament season'ları
          @nbr = Announcament.find(params[:an_id]).season
 
-        @profiles = []
-        @nbr.each do |seas|
-          @nbrc =  ActiveRecord::Base.connection.execute(
-                    "SELECT * FROM announcaments_seasons
+         @teyteyteytey = [];
+         @nbr.each do |seas|
+           @nbrc =  ActiveRecord::Base.connection.execute(
+                    "SELECT season_id FROM announcaments_seasons
                      WHERE announcament_id='#{params[:an_id]}' AND season_id='#{seas.id}' AND availability='true'")
-         @profiles << @nbrc.to_json
-        end
-
-
-        # @profiles.each do |element|
-        #     element[0]
-        # end
-
-
+           @nbrc.each do |a|
+             @teyteyteytey.push(  a["season_id"]   )
+           end
+         end
+         @seasonss = Season.find(@teyteyteytey)
       end
   end
 

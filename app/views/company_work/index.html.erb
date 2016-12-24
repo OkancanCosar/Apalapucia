@@ -86,9 +86,7 @@
     <div class="col-md-6" style="margin-left: 2%;margin-top: 5%">
       <div class="panel panel-success" style="">
         <div class="panel-heading">Firma İlanları
-
-            <%= link_to 'Ekle', new_announcament_path, :class => "btn btn-info", style: "margin-left: 75%" %>
-
+          <%= link_to 'Ekle', new_announcament_path, :class => "btn btn-info", style: "margin-left: 75%" %>
         </div>
         <div class="panel-body">
 
@@ -99,59 +97,15 @@
                 <p class="col-md-5">
                   <%= a.title %>
                 </p>
-                  <%= link_to 'Görüntüle', a, :class => "btn btn-default" %>
+                <%= link_to 'Görüntüle', a, :class => "btn btn-default" %>
                   <%= link_to 'Güncelle', edit_announcament_path(a), :class => "btn btn-success" %>
-                  <%= link_to 'Sil', a, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+                    <%= link_to 'Sil', a, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
               </li>
               <% end %>
                 <% else %>
                   No announcament
                   <% end %>
 
-        </div>
-      </div>
-
-      <!-- Galeri -->
-      <div class="ilanlar">
-        <div class="panel panel-warning">
-          <div class="panel-heading">Galeri
-            <button type="button" class="btn btn-info" style="margin-left: 83%">Ekle</button>
-          </div>
-          <div class="panel-body">
-            <li class="list-group-item">
-              <div class="col-md-2 nopadding">
-                <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
-              </div>
-              <p class="col-md-9" style="margin-top: 3%">Osman
-                <br> Soldanyatan</p>
-              <button type="button" class="btn btn-default" style="margin-left: 2%">Görüntüle</button>
-              <button type="button" class="btn btn-primary">Düzenle</button>
-              <button type="button" class="btn btn-success">Güncelle</button>
-              <button type="button" class="btn btn-danger">Sil</button>
-            </li>
-            <li class="list-group-item">
-              <div class="col-md-2 nopadding">
-                <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
-              </div>
-              <p class="col-md-9" style="margin-top: 3%">Osman
-                <br> Soldanyatan</p>
-              <button type="button" class="btn btn-default" style="margin-left: 2%">Görüntüle</button>
-              <button type="button" class="btn btn-primary">Düzenle</button>
-              <button type="button" class="btn btn-success">Güncelle</button>
-              <button type="button" class="btn btn-danger">Sil</button>
-            </li>
-            <li class="list-group-item">
-              <div class="col-md-2 nopadding">
-                <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
-              </div>
-              <p class="col-md-9" style="margin-top: 3%">Osman
-                <br> Soldanyatan</p>
-              <button type="button" class="btn btn-default" style="margin-left: 2%">Görüntüle</button>
-              <button type="button" class="btn btn-primary">Düzenle</button>
-              <button type="button" class="btn btn-success">Güncelle</button>
-              <button type="button" class="btn btn-danger">Sil</button>
-            </li>
-          </div>
         </div>
       </div>
     </div>

@@ -5,10 +5,29 @@
     <div class="item active">
       <div id="custom-search-input">
         <div class="input-group col-md-12">
-          <input type="text" class="  search-query form-control" placeholder=" İlan ara" />
-          <span class="input-group-btn">
-            <button class="btn btn-danger" type="button"><span class=" glyphicon glyphicon-search"></span></button>
-          </span>
+
+
+          <%= form_tag ilanlar_path, :method => 'get' do %>
+
+              <%= text_field_tag :search, params[:search], class: "search-query form-control", :required => true ,
+                placeholder: "Find announcament"%>
+
+
+                <%= submit_tag "Search", :name => nil, class:"naber" %>
+
+
+
+            <% end %>
+
+<style >
+  .naber{
+    background-color: #b55c5c
+  }
+</style>
+
+
+
+
         </div>
       </div>
       <img src="http://erdemgencoglu.16mb.com/image/slide3.jpg" style="height: 509px; width: 100%" alt="">
@@ -26,7 +45,7 @@
           <div class="item  active">
             <div class="row ">
 
-              <% Company.all.limit(3).each do |c|%>
+              <% @comp.each do |c|%>
                 <div class="col-md-4">
 
                   <%= link_to ilanlar_path(:compID => c.id) do %>
@@ -70,7 +89,7 @@
   <div class="row text-center">
     <div class="col-md-4">
       <h4>Son İlanlar</h4>
-      <% Announcament.all.order("created_at DESC").limit(5).each do |c|%>
+      <% @ans.each do |c|%>
         <ul class="list-group">
           <li class="list-group-item">
             <%= link_to c.title, c %>
@@ -78,7 +97,7 @@
         </ul>
         <%end%>
           <h4>Son ilan veren Firmalar</h4>
-          <% Company.all.order("created_at DESC").limit(3).each do |c|%>
+          <% @comporder.each do |c|%>
             <div class="col-md-6" style="margin-left:25%">
 
               <%= link_to ilanlar_path(:compID => c.id) do %>
@@ -92,19 +111,19 @@
     <h4>Tüm Yetenekler</h4>
     <div class="col-md-8">
 
-      <% if Skill.all.present? %>
-        <% Skill.all.each do |s| %>
+      <% if @s.present? %>
+        <% @s.each do |s| %>
 
-        <div class="col-md-6 nopadding">
-          <div class="thumbnail">
-            <img class="card-img-top" src="">
-            <%= link_to(image_tag(s.skill_icon.url), ilanlar_path(:skillID => s.id)) %>
+          <div class="col-md-6 nopadding">
+            <div class="thumbnail">
+              <img class="card-img-top" src="">
+              <%= link_to(image_tag(s.skill_icon.url), ilanlar_path(:skillID => s.id)) %>
+            </div>
           </div>
-        </div>
 
-        <% end %>
-      <% end %>
-      
+          <% end %>
+            <% end %>
+
     </div>
   </div>
   <hr>

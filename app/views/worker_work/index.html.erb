@@ -44,23 +44,8 @@
 
     <!-- Middle Column -->
     <div class="w3-col m6">
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card-2 w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <!--<h6 class="w3-opacity">Vermiş olduğun iş ilanlarını ara</h6>-->
-              <div class="col-md-11" style="margin-left: -20px;padding-right: 0px">
-                <input class="w3-border w3-padding" style="width: 100%" />
-              </div>
-              <div class="col-md-1">
-                <button type="button" class="w3-btn w3-theme-d6 right" style="height: 38px;margin-left:-1px">Ara</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-        <%= link_to 'İlan ekle', new_announcament_path,
-        class: "w3-btn w3-theme-d6", style: "height: 38px;margin-top: 2%;margin-left: 16px" %>
+        <%= link_to 'New Announcament', new_announcament_path,
+        class: "w3-btn w3-theme-d6", style: "margin:10px; width:97%" %>
       <!-- İlan 1 -->
       <% if @ilanlar.present? %>
         <% @ilanlar.each do |i| %>

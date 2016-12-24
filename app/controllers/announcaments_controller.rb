@@ -37,7 +37,6 @@ class AnnouncamentsController < ApplicationController
     else
       @announcament = Announcament.new
       if company_signed_in?
-
         # company'nin oluşturduğu tüm season'ları getirir.
         @seasons = Season.where(:worker_id => Worker.where(:company_id => current_company.id).ids)
         @s = Worker.where(:company_id => current_company.id).ids[0]

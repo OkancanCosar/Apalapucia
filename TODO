@@ -1,10 +1,18 @@
+        HATIRLATMALAR
+=================================
 Appointment düzenleme yok
 reg_count kullanılmayacak
 
 
+
+
+          EKSİKLER
+=================================
 galeri modülü yok
 
-announcament controller show action da tüm season lar görünüyor. availability=true kontrolü lazım.
-new appointment bölümünde de  availability=true kontrolü lazım.
 
-find bölümleri çalışmıyor.
+
+
+          HATALAR
+=================================
+worker_work bölümünde ilan listelerken javascripti düzgün çalışmıyor sadece ilk ilan açılıyor.
