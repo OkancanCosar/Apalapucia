@@ -36,19 +36,17 @@
                   </li>
                   <% end %>
                     <% else %>
-                      No worker
+                      Çalışan yok
                       <% end %>
             </ul>
           </div>
         </div>
       </div>
-
       <!-- Onay Bekleyen   -->
       <div class="panel panel-primary" style="">
         <div class="panel-heading">Bekleyen Onaylar</div>
         <div class="panel-body">
           <ul class="list-group">
-
             <% if @wp.present? %>
               <% @wp.each do |wp| %>
                 <span style="display:none">
@@ -73,20 +71,17 @@
                 </li>
                 <% end %>
                   <% else %>
-                    <p>No Waiting request</p>
+                    <p>Bekleyen istek bulunmamakta</p>
                     <% end %>
-
           </ul>
         </div>
       </div>
-
     </div>
-
     <!-- Firma ilanları -->
     <div class="col-md-6" style="margin-left: 2%;margin-top: 5%">
       <div class="panel panel-success" style="">
         <div class="panel-heading">Firma İlanları
-          <%= link_to 'Ekle', new_announcament_path, :class => "btn btn-info", style: "margin-left: 75%" %>
+          <%= link_to 'Ekle', new_announcament_path, :class => "btn btn-info", style: "margin-left: 460px" %>
         </div>
         <div class="panel-body">
 
@@ -97,15 +92,14 @@
                 <p class="col-md-5">
                   <%= a.title %>
                 </p>
-                <%= link_to 'Görüntüle', a, :class => "btn btn-default" %>
+                <%= link_to 'Görüntüle', a, :class => "btn btn-default" ,:style => "margin-left:100px" %>
                   <%= link_to 'Güncelle', edit_announcament_path(a), :class => "btn btn-success" %>
-                    <%= link_to 'Sil', a, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+                    <%= link_to 'Sil', a, method: :delete, data: { confirm: 'Silmek işlemini onaylıyormusunz?' }, :class => "btn btn-danger" %>
               </li>
               <% end %>
                 <% else %>
-                  No announcament
+                  İlan bulunmamakta
                   <% end %>
-
         </div>
       </div>
     </div>

@@ -7,35 +7,35 @@
             <%= devise_error_messages! %>
           </p>
           <div class="field-wrap">
-            <%= f.label :email %>
+            <%= f.label :email,"Mail" %>
               <%= f.email_field :email, autofocus: true %>
           </div>
           <div class="field-wrap">
-            <%= f.label :password %>
+            <%= f.label :password ,"Şifre"%>
               <%= f.password_field :password, autocomplete: "off" %>
           </div>
           <div class="field-wrap">
-            <%= f.label :password_confirmation %>
+            <%= f.label :password_confirmation,"Şifreyi onayla" %>
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
           <div class="field-wrap">
-            <%= f.label :current_password %>
+            <%= f.label :current_password ,"Şu anki aktif şifre"%>
               <%= f.password_field :current_password, autocomplete: "off" %>
           </div>
           <div class="field-wrap">
-            <%= f.label :company_poster %>
+            <%= f.label :company_poster,"Firma posteri"  %>
           </div>
           <div class="field-wrap">
             <%= f.file_field :company_poster %>
           </div>
           <div class="field-wrap" style="margin-top: -30px">
-            <%= f.label :company_icon %>
+            <%= f.label :company_icon,"Firma resmi" %>
           </div>
           <div class="field-wrap" style="margin-top: -30px">
             <%= f.file_field :company_icon %>
           </div>
           <button type="submit" class="button button-block" />
-          <%= f.submit "Update" %>
+          <%= f.submit "Güncelle" %>
           </button>
           <% end %>
         </div>

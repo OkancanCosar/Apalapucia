@@ -12,16 +12,17 @@
       <!-- Profile -->
       <div class="w3-card-2 w3-round w3-white">
         <div class="w3-container">
-          <%= link_to "", edit_worker_registration_path, class: "btn btn-default fa fa-pencil",
-          style: "margin-left: 90%;margin-top: 5px;" %>
-            <h4 class="w3-center"> <%= current_worker.email %> </h4>
+          <button type="button" class="btn btn-default" style="margin-left: 90%;margin-top: 5px;">
+            <%= link_to "", edit_worker_registration_path, class: "fa fa-pencil" %>
+          </button>
+          <h4 class="w3-center"> <%= current_worker.email %> </h4>
             <p class="w3-center"><img src="<%= current_worker.worker_image.url %>" class="w3-circle" style="height:106px;width:106px" alt="Resim"></p>
             <hr>
-            <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Name Surname:
+            <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i>Ad Soyad:
               <%= current_worker.name %>
-                <%= current_worker.lastname %>
+              <%= current_worker.lastname %>
             </p>
-            <p><i class="fa fa-fw w3-margin-right w3-text-theme"></i> Firm:
+            <p><i class="fa fa-fw w3-margin-right w3-text-theme" style="margin-left: -6px"></i> Firma:
               <%= @firm.name %>
             </p>
         </div>
@@ -30,14 +31,15 @@
       <!-- Interests -->
       <div class="w3-card-2 w3-round w3-white w3-hide-small">
         <div class="w3-container">
-          <p>Worker skills</p>
+          <p><center>Çalışan Yetenekleri</center></p>
+          <hr>
           <p>
             <% if @yetenekler.present? %>
               <% @yetenekler.each do |y| %>
                 <%= link_to y.name, ilanlar_path(:skillID => y.id), class: "w3-tag w3-small w3-theme-d5" %>
                   <% end %>
                     <% else %>
-                      There is no skill
+                      Her hangi bir yetenek eklenmedi
                       <% end %>
           </p>
         </div>
@@ -48,7 +50,7 @@
 
     <!-- Middle Column -->
     <div class="w3-col m6">
-      <%= link_to 'New Announcament', new_announcament_path,
+      <%= link_to 'Yeni ilan ekle', new_announcament_path,
         class: "w3-btn w3-theme-d6", style: "margin:10px; width:97%" %>
         <!-- İlan 1 -->
         <% if @ilanlar.present? %>
@@ -62,10 +64,10 @@
                 <%= i.body.html_safe %>
               </p>
               <div class="w3-container">
-                <a href="#d<%= i.id %>" class="" data-toggle="collapse" style="margin-left:48%">
-                  <i class="glyphicon glyphicon-menu-down"></i>
+                <a href="#dem<%= i.id %>" class="" data-toggle="collapse" style="margin-left:48%">
+                  <i class="fa fa-arrow-down" style="color: black"></i>
                 </a>
-                <div id="d<%= i.id %>" class="collapse">
+                <div id="dem<%= i.id %>" class="collapse">
                   <p> Aranan Yetenekler</p>
                   <p>
                     <% if i.skill.present? %>
@@ -73,13 +75,13 @@
                         <%= link_to y.name, ilanlar_path(:skillID => y.id), class: "w3-tag w3-small w3-theme-d5" %>
                           <% end %>
                             <% else %>
-                              There is no skill
-                              <% end %>
+                              Yetenek eklenmemiş
+                    <% end %>
                   </p>
                   <div id="butonlar">
-                    <%= link_to 'Detay', i, :class => "w3-btn  w3-theme-d6 w3-margin-bottom" %>
-                      <%= link_to 'Düzenle', edit_announcament_path(i), :class => "w3-btn  w3-theme-d7 w3-margin-bottom" %>
-                        <%= link_to 'Sil', i, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-btn  w3-theme-d2 w3-margin-bottom" %>
+                    <%= link_to 'Detay', i, {class: "w3-btn  w3-theme-d6 w3-margin-bottom",style:"margin-left: 320px"} %>
+                    <%= link_to 'Düzenle', edit_announcament_path(i), {class: "w3-btn  w3-theme-d7 w3-margin-bottom"} %>
+                    <%= link_to 'Sil', i, method: :delete, data: { confirm: 'Silinsin mi?' }, :class => "w3-btn  w3-theme-d2 w3-margin-bottom"%>
                   </div>
                 </div>
               </div>

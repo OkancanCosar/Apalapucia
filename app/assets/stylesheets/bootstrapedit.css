@@ -9,6 +9,9 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+.arrowarkaplan{
+    background-image: url("arrow-down.png");
+}
 body {
   margin: 0;
 }
@@ -3070,7 +3073,7 @@ fieldset[disabled] a.btn {
 }
 .btn-default {
   color: #333;
-  background-color: #fff;
+  background-color: #597d9b;
   border-color: #ccc;
 }
 .btn-default:focus,
@@ -4015,7 +4018,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eee;
+  color: black;
   border-color: #337ab7;
 }
 .nav .nav-divider {

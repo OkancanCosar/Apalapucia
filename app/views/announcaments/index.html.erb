@@ -1,12 +1,12 @@
-<div class="container" style="margin-left: 650px;margin-bottom: 50px ">
+<div class="container" style="margin-left: 630px;margin-bottom: 50px ">
   <%= link_to 'İlan Ekle', new_announcament_path, :class => "btn btn-info" %>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-1" style="margin-left: 60px">
+    <div class="col-sm-0" style="margin-left: 60px">
     </div>
     <% @announcaments.each do |announcament| %>
-    <div class="col-sm-3  ">
+    <div class="col-sm-3">
       <div class="card">
         <div class="card-block">
           <h4 class="card-title">İlan Başlığı:<%= announcament.title %></h4>

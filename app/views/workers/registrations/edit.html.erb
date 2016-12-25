@@ -8,11 +8,11 @@
             <%= devise_error_messages! %>
           </p>
           <div class="field-wrap">
-            <%= f.label :name %>
+            <%= f.label :name ,"Ad"%>
               <%= f.text_field :name, autofocus: true %>
           </div>
           <div class="field-wrap">
-            <%= f.label :lastname %>
+            <%= f.label :lastname,"Soyad" %>
               <%= f.text_field :lastname %>
           </div>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,37 +21,37 @@
             </div>
             <% end %>
               <div class="field-wrap">
-                <%= f.label :email %>
+                <%= f.label :email,"Mail" %>
                   <%= f.email_field :email %>
               </div>
               <div class="field-wrap">
-                <%= f.label :password %>
+                <%= f.label :password,"Şifre" %>
                   <%= f.password_field :password, autocomplete: "off" %>
               </div>
               <div class="field-wrap">
-                <%= f.label :password_confirmation %>
+                <%= f.label :password_confirmation,"Şifreyi onayla" %>
                   <%= f.password_field :password_confirmation, autocomplete: "off" %>
               </div>
               <div class="field-wrap">
-                <%= f.label :current_password %>
+                <%= f.label :current_password ,"Şu anki aktif şifre"%>
                   <%= f.password_field :current_password, autocomplete: "off" %>
               </div>
               <div class="field">
-                <div class="field-wrap" style="margin-bottom: 5px">
-                  <%= f.label :description %>
+                <div class="field-wrap" style="margin-bottom: 5px;margin-left: -15px">
+                  <%= f.label :description,"Açıklama" %>
                 </div>
                 <%= f.text_area :description %>
               </div>
               <div class="field">
-                <div class="field-wrap" style="margin-bottom: 5px">
-                  <%= f.label :company_id %>
+                <div class="field-wrap" style="margin-bottom: 5px;margin-top: 25px;margin-left: -15px">
+                  <%= f.label :company_id,"Çalıştığın firma" %>
                 </div>
                 <%= f.collection_select(:company_id, @comps, :id, :name, :include_blank => "Firmanızı seçiniz...") %>
               </div>
-              <div class="field-wrap" style="margin-bottom: 5px">
-                <%= f.label :worker_image %>
+              <div class="field-wrap" style="margin-bottom: 5px;margin-left: -15px">
+                <%= f.label :worker_image,"Profil resmi" %>
               </div>
-              <div class="field-wrap">
+              <div class="field-wrap" style="margin-left: -10px">
                 <%= f.file_field :worker_image %>
               </div>
               <div class="form-group">
@@ -59,10 +59,10 @@
                   <%= f.select :skill_ids, skils,
                          { prompt: "Select some skill" },
                          {class: "form-control", multiple: true, size: 10 } %>
-                    <p class="help-block">Select multiple with Ctrl</p>
+                    <p class="help-block" style="color:white;">Çoklu seçim için Ctrl tuşunu kullanınız</p>
               </div>
               <button class="button button-block">
-                <%= f.submit "Update" %>
+                <%= f.submit "Güncelle" %>
               </button>
                   <% end %>
         </div>

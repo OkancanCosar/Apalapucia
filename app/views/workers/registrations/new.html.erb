@@ -9,23 +9,23 @@
   <div class="">
 
     <div id="signup">
-      <h1>Bedava Kayıt Olun</h1>
+      <h1>Kayıt Olun</h1>
         <div class="field-wrap">
-          <%= f.label :name %>
+          <%= f.label :name ,"Ad"%>
           <%= f.text_field :name, autofocus: true %>
         </div>
         <div class="field-wrap">
-          <%= f.label :lastname %>
+          <%= f.label :lastname,"Soyad" %>
           <%= f.text_field :lastname %>
         </div>
 
         <div class="field-wrap">
-          <%= f.label :email %>
+          <%= f.label :email ,"Mail"%>
           <%= f.email_field :email, autofocus: true %>
         </div>
 
         <div class="field-wrap">
-          <%= f.label :password %>
+          <%= f.label :password,"Şifre" %>
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
         <div class="field-wrap nopadding">

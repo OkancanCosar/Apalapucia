@@ -1,27 +1,27 @@
 <% if member_signed_in?%>
-<nav class="navbar navbar-member " style="margin-top: -50px;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <p class="navbar-brand" style="color: white"><%= link_to "Apalapucia",root_path  %></p>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
-          İşlemler</a>
-        <ul class="dropdown-menu">
-          <li role="presentation" class="active">
-          </li>
-          <li role="presentation" class="active">
-            <%= link_to "Düzenle", edit_member_registration_path %>
-          </li>
-          <li role="presentation">
-            <%= link_to "Üye Çıkışı", destroy_member_session_path, :method => 'delete' %>
+    <nav class="navbar navbar-member " style="margin-top: -50px;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <p class="navbar-brand" style="color: white"><%= link_to "Apalapucia",root_path  %></p>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" ><span class="fa fa-folder-open" ></span>
+              İşlemler</a>
+            <ul class="dropdown-menu">
+              <li role="presentation" class="active">
+              </li>
+              <li role="presentation" class="active">
+                <%= link_to "Düzenle", edit_member_registration_path ,class: "fa fa-pencil"%>
+              </li>
+              <li role="presentation">
+                <%= link_to "Üye Çıkışı", destroy_member_session_path,:method => 'delete' ,class:"fa fa-power-off" %>
+              </li>
+            </ul>
           </li>
         </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
+      </div>
+    </nav>
 <% elsif worker_signed_in? %>
     <nav class="navbar navbar-worker " style="margin-top: -50px;">
       <div class="container-fluid">
@@ -30,52 +30,52 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" ><span class="fa fa-folder-open" ></span>
               İşlemler</a>
             <ul class="dropdown-menu">
-                  <li role="presentation" class="active">
-                    <%= link_to "Düzenle", edit_worker_registration_path %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to "ilan ekle", new_announcament_path%>
-                  </li>
-                  <li role="presentation" class="active">
-                    <%= link_to "İşçi işlemleri", worker_work_path %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to "İşçi Çıkışı", destroy_worker_session_path, :method => 'delete' %>
-                  </li>
+              <li role="presentation" class="active">
+                <%= link_to "Düzenle", edit_worker_registration_path , class: "fa fa-pencil"%>
+              </li>
+              <li role="presentation">
+                <%= link_to "ilan ekle", new_announcament_path,class: "fa fa-list-alt" %>
+              </li>
+              <li role="presentation" class="active">
+                <%= link_to "İşçi işlemleri", worker_work_path,class: "fa fa-briefcase"  %>
+              </li>
+              <li role="presentation">
+                <%= link_to "İşçi Çıkışı", destroy_worker_session_path, :method => 'delete',class:"fa fa-power-off" %>
+              </li>
             </ul>
           </li>
         </ul>
       </div>
     </nav>
 <% elsif company_signed_in? %>
-        <nav class="navbar navbar-inverse " style="margin-top: -50px;">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <p class="navbar-brand" style="color: white"><%= link_to "Apalapucia",root_path  %></p>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
-                  İşlemler</a>
-                <ul class="dropdown-menu">
-                  <li role="presentation" class="active">
-                    <%= link_to "Şirket işlemleri", company_work_path %>
-                  </li>
-                  <li role="presentation">
-                    <%= link_to "Düzenle", edit_company_registration_path %>
-                  </li>
-                  <li role="presentation" class="active">
-                    <%= link_to "Şirket Çıkışı", destroy_company_session_path, :method => 'delete' %>
-                  </li>
-
-                </ul>
+    <nav class="navbar navbar-inverse " style="margin-top: -50px;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <p class="navbar-brand" style="color: white"><%= link_to "Apalapucia",root_path  %></p>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" ><span class="fa fa-folder-open" ></span>
+              İşlemler</a>
+            <ul class="dropdown-menu">
+              <li role="presentation" class="active">
+                <%= link_to "Şirket işlemleri", company_work_path ,class: "fa fa-briefcase" %>
               </li>
+              <li role="presentation">
+                <%= link_to "Düzenle", edit_company_registration_path, class: "fa fa-pencil"%>
+              </li>
+              <li role="presentation" class="active">
+                <%= link_to "Şirket Çıkışı", destroy_company_session_path, :method => 'delete',class:"fa fa-power-off" %>
+              </li>
+
             </ul>
-          </div>
-        </nav>
+          </li>
+        </ul>
+      </div>
+    </nav>
 <% else %>
     <nav class="navbar navbar-inverse" style="margin-top: -50px;">
       <div class="container-fluid">
@@ -85,20 +85,20 @@
         <ul class="nav navbar-nav navbar-right">
           <% if member_signed_in? %>
               <li role="presentation" class="active">
-                <%= link_to "Düzenle", edit_member_registration_path %>
+                <%= link_to "Düzenle", edit_member_registration_path ,class: "fa fa-pencil"%>
               </li>
           <% else %>
               <li role="presentation">
-                <%= link_to "Üye Girişi Yap", new_member_session_path %>
+                <%= link_to "Üye Girişi Yap", new_member_session_path,class:"fa fa-user" %>
               </li>
           <% end %>
           <li>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" > <span class="fa fa-home" ></span>
               Kurumsal</a>
             <ul class="dropdown-menu">
               <% if company_signed_in? %>
                   <li role="presentation" class="active">
-                    <%= link_to "Düzenle", edit_company_registration_path %>
+                    <%= link_to "Düzenle", edit_company_registration_path, class: "fa fa-pencil"%>
                   </li>
               <% else %>
                   <li role="presentation">
@@ -107,7 +107,7 @@
               <% end %>
               <% if worker_signed_in? %>
                   <li role="presentation" class="active">
-                    <%= link_to "Düzenle", edit_worker_registration_path %>
+                    <%= link_to "Düzenle", edit_worker_registration_path,class: "fa fa-pencil" %>
                   </li>
               <% else %>
                   <li role="presentation">
