@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @season.start_date %>
+<p id="notice">
+  <%= notice %>
 </p>
+<div class="container" style="margin:20px">
+  <p>
+    <strong>Start date:</strong>
+    <%= @season.start_date.strftime('%B %d, %Y %H:%M')  %>
+  </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @season.end_date %>
-</p>
-
-<%= link_to 'Edit', edit_season_path(@season) %> |
-<%= link_to 'Back', seasons_path %>
+  <p>
+    <strong>End date:</strong>
+    <%= @season.end_date.strftime('%B %d, %Y %H:%M')  %>
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_season_path(@season) %> |
+    <%= link_to 'Back', seasons_path %>
+  </p>
+</div>

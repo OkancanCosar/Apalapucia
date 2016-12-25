@@ -2,33 +2,36 @@
   <% if appointment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
-
       <ul>
-      <% appointment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% appointment.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
+      <div class="container" style="padding: 50px; margin-top:-100px">
+        <div class="form-group">
+          <div class="field-wrap">
+            <span style="color:red"> Write something </span>
+            <br>
+            <%= f.text_area :body %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
+        <div class="form-group" style="margin-top: 18%">
+          <div class="field-wrap">
+            <span style="color:red"> Choose season </span>
+            <br>
+            <%= f.collection_select(:season_id, @seasonss, :id, :start_date, :include_blank => "Please select a time...") %>
+          </div>
+        </div>
+        <%= f.hidden_field :member_id, value: current_member.id %>
+          <%= f.hidden_field :announcament_id, value: params[:an_id]%>
 
-  <div class="field">
-      <%= f.label :season_id %><br />
-      <%= f.collection_select(:season_id, @nbr, :id, :start_date, :include_blank => "Please select a time...") %>
-  </div>
-
-  <div class="field">
-    <%= f.hidden_field :member_id, value: current_member.id %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :announcament_id, value: params[:an_id]%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+            <button type="button" class="btn btn-primary">
+              <%= f.submit %>
+            </button>
+      </div>
+      <% end %>

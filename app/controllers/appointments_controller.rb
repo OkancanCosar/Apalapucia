@@ -1,21 +1,43 @@
 class AppointmentsController < ApplicationController
+  before_action :authenticate_member!
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    @appointments = current_member.appointment
   end
 
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+    @sea = Season.find(@appointment.season_id)
+    @me = Member.find(@appointment.member)
+    @ans = Announcament.find(@appointment.announcament)
+
   end
 
   # GET /appointments/new
   def new
       @appointment = Appointment.new
-      @nbr = Announcament.find(params[:an_id]).season
+      if !params[:an_id]
+        render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+      else
+        # announcament id => params[:an_id]
+        # tüm announcament season'ları
+         @nbr = Announcament.find(params[:an_id]).season
+
+         @teyteyteytey = [];
+         @nbr.each do |seas|
+           @nbrc =  ActiveRecord::Base.connection.execute(
+                    "SELECT season_id FROM announcaments_seasons
+                     WHERE announcament_id='#{params[:an_id]}' AND season_id='#{seas.id}' AND availability='true'")
+           @nbrc.each do |a|
+             @teyteyteytey.push(  a["season_id"]   )
+           end
+         end
+         @seasonss = Season.find(@teyteyteytey)
+      end
   end
 
   # GET /appointments/1/edit

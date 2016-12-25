@@ -1,52 +1,39 @@
-
-<p id="notice"><%= notice %></p>
 <div class="container">
   <div class="row">
+    <div class="col-sm-1" style="margin-left: 60px">
     </div>
-    <div class="col-sm-4">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Appointmen Başlığı</h4>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <h1>Appointments</h1>
-          <table>
-            <thead>
-            <tr>
+    <% if @appointments.present? %>
+      <% @appointments.each do |appointments| %>
+        <div class="col-sm-3  ">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Announcament: <%= appointments.announcament.title  %></h4>
+              <p class="card-text">Appointment body:
+                <%= appointments.body.html_safe %>
+              </p>
+            </div>
 
-              <th colspan="3"></th>
-            </tr>
-            </thead>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Season start:
+                <% if appointments.season.present? %>
+                  <%= appointments.season.start_date.strftime('%B %d, %Y %H:%M') %>
+                <% else %>
+                  Not setting
+                <% end %>
+              </li>
+            </ul>
 
-            <tbody>
-            <% @appointments.each do |appointment| %>
-                <tr>
-                  <td><%= appointment.body %></td>
-                  <td><%= appointment.season %></td>
-                  <td><%= appointment.member %></td>
-                  <td><%= appointment.announcament %></td>
-                  <td><%= link_to 'Show', appointment %></td>
-                  <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-                  <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                </tr>
-            <% end %>
-            </tbody>
-          </table>
-
-          <br>
-
-
-          <button type="button" class="btn btn-primary">  <%= link_to 'New Appointment', new_appointment_path %></button>
-
+            <div class="card-block">
+              <%= link_to 'Göster', appointments, :class => "btn btn-primary" %>
+                <%= link_to 'Sil', appointments, method: :delete, data: { confirm: 'Emin misin?' }, :class => "btn btn-danger" %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-    </div>
+        <% end %>
+          <% else %>
+          There is no appointments
+          <% end %>
+            <div class="col-sm-1">
+            </div>
   </div>
 </div>
-

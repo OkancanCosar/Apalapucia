@@ -1,185 +1,110 @@
 <% if company_signed_in? %>
-<body>
-<div style="margin-top: -40px;">
-  <div class="fb-profile">
-    <img align="left" class="fb-image-lg" src=" <%=current_company.company_poster.url %>" style="height: 400px; width:100% ">
-    <img align="left" class="fb-image-profile thumbnail" src="<%=current_company.company_icon.url %>" alt="Profile image example"/>
-    <div align="left">
-      <center><h2><%= current_company.name %></h2></center>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <!-- Onay Bekleyen   -->
-  <div class="col-md-5 nopaddingright" style="margin-left: 1%;margin-top: 5%">
-    <div class="panel panel-primary" style="">
-      <div class="panel-heading">Bekleyen Onaylar</div>
-      <div class="panel-body">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <div class="col-md-2 nopadding">
-              <img src="image/profile.png" style="width:60px;height: 50px;">
-            </div>
-            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
-            <div style="margin: 2%;margin-left: 25px"></div>
-            <button type="button" class="btn btn-success">Onayla</button>
-            <button type="button" class="btn btn-danger" >Sil</button>
-          </li>
-          <li class="list-group-item">
-            <div class="col-md-2 nopadding">
-              <img src="image/profile.png" style="width:60px;height: 50px;">
-            </div>
-            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
-            <div style="margin: 2%;margin-left: 25px"></div>
-            <button type="button" class="btn btn-success">Onayla</button>
-            <button type="button" class="btn btn-danger" >Sil</button>
-          </li>
-          <li class="list-group-item">
-            <div class="col-md-2 nopadding">
-              <img src="image/profile.png" style="width:60px;height: 50px;">
-            </div>
-            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
-            <div style="margin: 2%;margin-left: 25px"></div>
-            <button type="button" class="btn btn-success">Onayla</button>
-            <button type="button" class="btn btn-danger" >Sil</button>
-          </li>
-          <li class="list-group-item">
-            <div class="col-md-2 nopadding">
-              <img src="image/profile.png" style="width:60px;height: 50px;">
-            </div>
-            <p class="col-md-7" style="margin-top: 1%">Osman <br> Soldanyatan</p>
-            <div style="margin: 2%;margin-left: 25px"></div>
-            <button type="button" class="btn btn-success">Onayla</button>
-            <button type="button" class="btn btn-danger" >Sil</button>
-          </li>
-        </ul>
+  <div style="margin-top: -40px;">
+    <div class="fb-profile">
+      <img align="left" class="fb-image-lg" src=" <%=current_company.company_poster.url %>" style="height: 400px; width:100% ">
+      <img align="left" class="fb-image-profile thumbnail" src=" <%=current_company.company_icon.url %>" alt="Profile image example" />
+      <div align="left">
+        <center>
+          <h2><%= current_company.name %></h2></center>
       </div>
     </div>
-    <!-- Firma Çalışanları -->
-    <div class="fcalisan">
-      <div class="panel panel-danger" style="">
-        <div class="panel-heading">Firma Çalışanları</div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 nopaddingright" style="margin-left: 1%;margin-top: 5%">
+
+      <!-- Firma Çalışanları -->
+      <div class="fcalisan">
+        <div class="panel panel-danger">
+          <div class="panel-heading">Firma Çalışanları</div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <% if @cls.present? %>
+                <% @cls.each do |c| %>
+                  <li class="list-group-item">
+                    <div class="col-md-2 nopadding ">
+                      <img src="<%= c.worker_image %>" style="width:60px;height: 50px;">
+                    </div>
+                    <p class="col-md-8" style="margin-top: 1%">
+                      <%= c.name %>
+                        <br>
+                        <%= c.lastname %>
+                    </p>
+                    <p>
+                      <%= link_to 'Delete', unregistered_path(:w => c.id),
+                            method: :put, class: 'btn btn-danger' %>
+                    </p>
+                  </li>
+                  <% end %>
+                    <% else %>
+                      Çalışan yok
+                      <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Onay Bekleyen   -->
+      <div class="panel panel-primary" style="">
+        <div class="panel-heading">Bekleyen Onaylar</div>
         <div class="panel-body">
           <ul class="list-group">
-            <li class="list-group-item">
-              <div class="col-md-2 nopadding ">
-                <img src="image/profile.png" style="width:60px;height: 50px;">
-              </div>
-              <p class="col-md-8"style="margin-top: 1%">Okancan <br> Bey</p>
-              <button type="button" class="btn btn-danger" style="margin: 2%;margin-left: 25px">Sil</button>
-            </li>
-            <li class="list-group-item">
-              <div class="col-md-2 nopadding ">
-                <img src="image/profile.png" style="width:60px;height: 50px;">
-              </div>
-              <p class="col-md-8"style="margin-top: 1%">Erdem <br> Bey</p>
-              <button type="button" class="btn btn-danger" style="margin: 2%;margin-left: 25px">Sil</button>
-            </li>
-            <li class="list-group-item">
-              <div class="col-md-2 nopadding ">
-                <img src="image/profile.png" style="width:60px;height: 50px;">
-              </div>
-              <p class="col-md-8"style="margin-top: 1%">Osman <br> Soldanyatan</p>
-              <button type="button" class="btn btn-danger" style="margin: 2%;margin-left: 25px">Sil</button>
-            </li>
-
+            <% if @wp.present? %>
+              <% @wp.each do |wp| %>
+                <span style="display:none">
+                <%= as = Worker.find(wp.worker_id)  %>
+              </span>
+                <li class="list-group-item">
+                  <div class="col-md-2 nopadding">
+                    <img src="<%= as.worker_image.url %>" style="width:60px;height: 50px;">
+                  </div>
+                  <p class="col-md-7" style="margin-top: 1%">
+                    <%= as.name %>
+                      <br>
+                      <%= as.lastname %>
+                  </p>
+                  <div style="margin: 2%;margin-left: 25px"></div>
+                  <% if !as.confirmation? %>
+                    <p>
+                      <%= link_to 'Onayla', registered_path(:a => as.id, :b => wp.id),
+                    method: :put, class: 'btn btn-success' %>
+                    </p>
+                    <% end %>
+                </li>
+                <% end %>
+                  <% else %>
+                    <p>Bekleyen istek bulunmamakta</p>
+                    <% end %>
           </ul>
-
         </div>
       </div>
     </div>
-  </div>
-  <!-- Firma ilankarı -->
-  <div class="col-md-6" style="margin-left: 2%;margin-top: 5%">
-    <div class="panel panel-success" style="">
-      <div class="panel-heading">Firma İlanları<button type="button" class="btn btn-info" style="margin-left: 75%">Ekle</button></div>
-      <div class="panel-body">
-        <li class="list-group-item ">
-          <p class="col-md-5">İlan Başlığı Başlığı</p>
-          <button type="button" class="btn btn-default">Görüntüle</button>
-          <button type="button" class="btn btn-primary">Düzenle</button>
-          <button type="button" class="btn btn-success">Güncelle</button>
-          <button type="button" class="btn btn-danger">Sil</button>
-        </li>
-        <li class="list-group-item ">
-          <div class="gruplubut">
-            <p class="col-md-5">İlan Başlığı Başlığı</p>
-            <button type="button" class="btn btn-default">Görüntüle</button>
-            <button type="button" class="btn btn-primary">Düzenle</button>
-            <button type="button" class="btn btn-success">Güncelle</button>
-            <button type="button" class="btn btn-danger">Sil</button>
-          </div>
-        </li>
-        <li class="list-group-item ">
-          <div class="gruplubut">
-            <p class="col-md-5">İlan Başlığı Başlığı</p>
-            <button type="button" class="btn btn-default">Görüntüle</button>
-            <button type="button" class="btn btn-primary">Düzenle</button>
-            <button type="button" class="btn btn-success">Güncelle</button>
-            <button type="button" class="btn btn-danger">Sil</button>
-          </div>
-        </li>
-
-      </div>
-    </div>
-    <!-- Galeri -->
-    <div class="ilanlar">
-      <div class="panel panel-warning">
-        <div class="panel-heading">Galeri <button type="button" class="btn btn-info" style="margin-left: 83%">Ekle</button></div>
+    <!-- Firma ilanları -->
+    <div class="col-md-6" style="margin-left: 2%;margin-top: 5%">
+      <div class="panel panel-success" style="">
+        <div class="panel-heading">Firma İlanları
+          <%= link_to 'Ekle', new_announcament_path, :class => "btn btn-info", style: "margin-left: 460px" %>
+        </div>
         <div class="panel-body">
-          <li class="list-group-item">
-            <div class="col-md-2 nopadding">
-              <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
-            </div>
-            <p class="col-md-9" style="margin-top: 3%">Osman <br> Soldanyatan</p>
-            <button type="button" class="btn btn-default" style="margin-left: 2%">Görüntüle</button>
-            <button type="button" class="btn btn-primary">Düzenle</button>
-            <button type="button" class="btn btn-success">Güncelle</button>
-            <button type="button" class="btn btn-danger">Sil</button>
-          </li>
-          <li class="list-group-item">
-            <div class="col-md-2 nopadding">
-              <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
-            </div>
-            <p class="col-md-9" style="margin-top: 3%">Osman <br> Soldanyatan</p>
-            <button type="button" class="btn btn-default"style="margin-left: 2%">Görüntüle</button>
-            <button type="button" class="btn btn-primary">Düzenle</button>
-            <button type="button" class="btn btn-success">Güncelle</button>
-            <button type="button" class="btn btn-danger">Sil</button>
-          </li>
-          <li class="list-group-item">
-            <div class="col-md-2 nopadding">
-              <img src="image/kaynak.jpg" style="width:100px;height: 100px;">
-            </div>
-            <p class="col-md-9" style="margin-top: 3%">Osman <br> Soldanyatan</p>
-            <button type="button" class="btn btn-default"style="margin-left: 2%">Görüntüle</button>
-            <button type="button" class="btn btn-primary">Düzenle</button>
-            <button type="button" class="btn btn-success">Güncelle</button>
-            <button type="button" class="btn btn-danger">Sil</button>
-          </li>
+
+          <% if @an.present? %>
+            <% @an.each do |a| %>
+
+              <li class="list-group-item ">
+                <p class="col-md-5">
+                  <%= a.title %>
+                </p>
+                <%= link_to 'Görüntüle', a, :class => "btn btn-default" ,:style => "margin-left:100px" %>
+                  <%= link_to 'Güncelle', edit_announcament_path(a), :class => "btn btn-success" %>
+                    <%= link_to 'Sil', a, method: :delete, data: { confirm: 'Silmek işlemini onaylıyormusunz?' }, :class => "btn btn-danger" %>
+              </li>
+              <% end %>
+                <% else %>
+                  İlan bulunmamakta
+                  <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-<!-- Footer -->
-<footer>
-  <div class="row">
-    <div class="col-lg-12">
-      <p><center>Footer Your Website</center></p>
-    </div>
-  </div>
-  <!-- /.row -->
-</footer>
-
-</div>
-<!-- /.container -->
-
-</body>
-<% else %>
+  </body>
+  <% else %>
     <%= link_to "Şirket Girişi Yap", new_company_session_path %>
-<% end %>
+      <% end %>

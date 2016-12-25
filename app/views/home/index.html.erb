@@ -1,19 +1,23 @@
 <div class="container"></div>
+<%= form_tag ilanlar_path, :method => 'get' do %>
 <header class="" style="margin-top: -20px;height: 400px">
   <!-- Wrapper for slides -->
+  <!-- Wrapper for slides -->
+
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <div id="custom-search-input">
         <div class="input-group col-md-12">
-          <input type="text" class="  search-query form-control" placeholder=" İlan ara" />
+          <%= text_field_tag :search, params[:search], class: "search-query form-control", :required => true ,placeholder: "İlan ara"%>
           <span class="input-group-btn">
-            <button class="btn btn-danger" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+            <button class="btn btn-danger" style="height: 20px" type="button"><span class=" fa fa-search"><%= submit_tag "", :name => nil%></span></button>
           </span>
         </div>
       </div>
       <img src="http://erdemgencoglu.16mb.com/image/slide3.jpg" style="height: 509px; width: 100%" alt="">
     </div>
   </div>
+  <% end %>
 </header>
 <br>
 <div class="firmalar" style="width: 90%;padding-left: 10%">
@@ -25,29 +29,26 @@
         <div class="carousel-inner">
           <div class="item  active">
             <div class="row ">
-                <% Company.all.limit(3).each do |c|%>
+              <% Company.all.limit(3).each do |c|%>
                   <div class="col-md-4">
-                    <img class="img-circle img-responsive img-center" src="<%=c.company_icon.url %>" alt="">
-                    <center><h5><%= c.name %></h5></center>
+                    <%= link_to ilanlar_path(:compID => c.id) do %>
+                        <%= image_tag c.company_icon.url, {class:"img-circle img-responsive img-center"} %>
+                        <center><h5 style="color: black"><%= c.name %></h5></center>
+                    <% end %>
                   </div>
-                <%end%>
+              <%end%>
             </div>
           </div>
           <div class="item">
-            <div class="row">
-              <div class="col-md-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-                <center><h5>Firma #4</h5></center>
-              </div>
-              <div class="col-md-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-                <center><h5>Firma #5</h5></center>
-              </div>
-              <div class="col-md-4">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-                <center><h5>Firma #6</h5></center>
-              </div>
-
+            <div class="row ">
+              <% Company.all.order("created_at DESC").limit(3).each do |c|%>
+                  <div class="col-md-4">
+                    <%= link_to ilanlar_path(:compID => c.id) do %>
+                        <%= image_tag c.company_icon.url, {class:"img-circle img-responsive img-center"} %>
+                        <center><h5 style="color: black"><%= c.name %></h5></center>
+                    <% end %>
+                  </div>
+              <%end%>
             </div>
           </div>
         </div>
@@ -63,61 +64,38 @@
   <div class="row text-center">
     <div class="col-md-4">
       <h4>Son İlanlar</h4>
-      <% Announcament.all.order("created_at DESC").limit(5).each do |c|%>
-      <ul class="list-group">
-            <li class="list-group-item"><%=c.title %></li>
-      </ul>
+      <% @ans.each do |c|%>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to c.title, c ,{style: "color:black"}%>
+          </li>
+        </ul>
         <%end%>
-      <h4>Son ilan veren Firmalar</h4>
-      <% Company.all.order("created_at DESC").limit(3).each do |c|%>
-          <div class="col-md-6" style="margin-left:25%">
-            <img class="img-circle2 img-responsive" src="<%=c.company_icon.url %>" alt="">
-            <center><h5><%=c.name %></h6></h5></center>
-          </div>
-      <%end%>
+          <h4>Son ilan veren Firmalar</h4>
+          <% @comporder.each do |c|%>
+            <div class="col-md-6" style="margin-left:25%">
+              <%= link_to ilanlar_path(:compID => c.id) do %>
+                <%= image_tag c.company_icon.url, :class => "img-circle2 img-responsive" %>
+                  <span style="font-weight: bold; color:black;margin-top: 5px"> <%= c.name %> </span>
+                  <% end %>
+                    <hr>
+            </div>
+            <%end%>
     </div>
     <h4>Tüm Yetenekler</h4>
     <div class="col-md-8">
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src=""><%= link_to(image_tag("hizmet_personeli.png"), root_path) %>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("isci.png"), root_path) %>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("mezun.png"), root_path) %>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("uzman.png"), root_path) %>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("yönetici.png"), root_path) %>
-        </div>
-      </div>
-      <div class="col-md-6 nopadding">
-        <div class="thumbnail">
-          <img class="card-img-top" src=""><img class="card-img-top" src=""><%= link_to(image_tag("engelli.png"), root_path) %>
-        </div>
-      </div>
+      <% if @s.present? %>
+        <% @s.each do |s| %>
+          <div class="col-md-6">
+            <div class="thumbnail">
+              <img class="card-img-top" src="">
+              <%= link_to(image_tag(s.skill_icon.url), ilanlar_path(:skillID => s.id)) %>
+            </div>
+          </div>
+          <% end %>
+      <% end %>
     </div>
   </div>
   <hr>
-
-
 </div>
 <%= javascript_include_tag 'jquery.js' %>
-
-<!-- /.container -->
-</body>
-</html>
-
-

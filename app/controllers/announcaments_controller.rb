@@ -10,8 +10,24 @@ class AnnouncamentsController < ApplicationController
   # GET /announcaments/1
   # GET /announcaments/1.json
   def show
+    @owner = false
     @skills = Announcament.find(params[:id]).skill
     @seasons = Announcament.find(params[:id]).season
+    if @announcament.worker_id
+      @auth = Worker.find(@announcament.worker_id);
+      if worker_signed_in?
+        if current_worker.id == @announcament.worker_id
+          @owner = true
+        end
+      end
+    elsif @announcament.company_id
+      @auth = Company.find(@announcament.company_id);
+      if company_signed_in?
+        if current_company.id == @announcament.company_id
+          @owner = true
+        end
+      end
+    end
   end
 
   # GET /announcaments/new
@@ -20,6 +36,19 @@ class AnnouncamentsController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
     else
       @announcament = Announcament.new
+      if company_signed_in?
+        # company'nin oluşturduğu tüm season'ları getirir.
+        @seasons = Season.where(:worker_id => Worker.where(:company_id => current_company.id).ids)
+        @s = Worker.where(:company_id => current_company.id).ids[0]
+      elsif worker_signed_in?
+         @seasons = Season.where(:worker_id => current_worker.id)
+      elsif member_signed_in?
+        if @announcament.worker_id
+          @auth = Worker.find(@announcament.worker_id);
+        elsif @announcament.company_id
+          @auth = Company.find(@announcament.company_id);
+        end
+      end
     end
   end
 
@@ -27,6 +56,13 @@ class AnnouncamentsController < ApplicationController
   def edit
     if !(company_signed_in? || worker_signed_in?)
       render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+    else
+      if company_signed_in?
+        @seasons = Season.where(:worker_id => Worker.where(:company_id => current_company.id).ids)
+        @s = Worker.where(:company_id => current_company.id).ids[0]
+      elsif worker_signed_in?
+        @seasons = Season.where(:worker_id => current_worker.id)
+      end
     end
   end
 
