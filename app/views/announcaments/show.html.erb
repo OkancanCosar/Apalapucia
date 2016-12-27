@@ -26,7 +26,12 @@
           </li>
           <li class="list-group-item"><strong>Görüşme zamanı:</strong> <br>
             <% @seasons.each do |s| %>
-                <%= s.start_date.strftime('%B %d, %Y %H:%M') %>,<br>
+                <%= s.start_date.strftime('%B %d, %Y %H:%M') %> ->
+                 <% a = Appointment.where({ :season_id => s.id, :announcament_id => @announcament.id }) %>
+                <% if a.present? %>
+                  <%= Member.find(a[0].member_id).name  %> <%= Member.find(a[0].member_id).lastname  %>
+                <% end %>
+                ,<br>
                   <% end %>
           </li>
           <div class="card-block" style="margin-left: 35px;margin-top: 15px">

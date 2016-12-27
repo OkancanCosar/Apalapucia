@@ -12,7 +12,8 @@
     <%= @season.end_date.strftime('%B %d, %Y %H:%M')  %>
   </p>
   <p>
-    <%= link_to 'Edit', edit_season_path(@season) %> |
-    <%= link_to 'Back', seasons_path %>
+    <%= link_to 'New Season', new_season_path, class:"btn btn-small btn-primary" %>
+    <%= link_to 'Edit', edit_season_path(@season), class:"btn btn-small btn-success" %>
+    <%= link_to 'Back to create announcement', new_announcament_path, class:"btn btn-small btn-info" %>
   </p>
 </div>
