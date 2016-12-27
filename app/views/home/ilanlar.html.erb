@@ -33,7 +33,7 @@
     <% elsif @at == 2 %>
       <% if @Search4Announcement.present? %>
         <!-- Search4Announcement -->
-        <span class="MT10">FOR <%= @sss.upcase %>  ANNOUNCAMENTS</span>
+        <span class="MT10">FOR "<%= @sss.upcase %>"  ANNOUNCAMENTS</span>
         <div class="row MT10">
           <div class="">
             <% @Search4Announcement.each do |announcament| %>
@@ -63,7 +63,7 @@
 
           <% if @Search4Company.present? %>
             <!-- Search4Company -->
-            <span class="MT10">FOR <%= @sss.upcase %> COMPANY ANNOUNCAMENTS </span>
+            <span class="MT10">FOR "<%= @sss.upcase %>" COMPANY ANNOUNCAMENTS </span>
             <div class="row MT10">
               <div class="">
                 <% @Search4Company.each do |announcament| %>
@@ -93,7 +93,7 @@
 
               <% if @Search4Skill.present? %>
                 <!-- Search4Skill -->
-                <span class="MT10"> FOR <%= @sss.upcase %> SKİLL ANNOUNCAMENTS </span>
+                <span class="MT10"> FOR "<%= @sss.upcase %>" SKİLL ANNOUNCAMENTS </span>
                 <div class="row MT10">
                   <div class="">
                     <% @Search4Skill.each do |announcament| %>

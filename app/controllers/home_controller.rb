@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     elsif params[:skillID]
        @at = 1;
        @announcaments = Skill.find("#{params[:skillID]}").announcament
-    elsif params[:search]
+    elsif params[:search].length > 2
       @at = 2;
       @asd = "%#{params[:search]}%";
       @sss = params[:search];
@@ -24,11 +24,15 @@ class HomeController < ApplicationController
 
       # Search4Company
       @kamp = Company.where("lower(name) like lower(?)", @asd )
-      @Search4Company = Announcament.where(:company_id => @kamp.ids)
+      if @kamp
+         @Search4Company = Announcament.where(:company_id => @kamp.ids)
+      end
 
       # Search4Skill
-      @skl = Skill.where("lower(name) like lower(?)", @asd )
-      @Search4Skill = Announcament.where(:skill_id => @skl.ids )
+      @skl = Skill.where("lower(name) like lower(?)", @asd ).first
+      if @skl
+        @Search4Skill = @skl.announcament
+      end
     end
   end
 end

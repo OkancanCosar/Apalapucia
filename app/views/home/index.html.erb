@@ -1,101 +1,110 @@
 <div class="container"></div>
 <%= form_tag ilanlar_path, :method => 'get' do %>
 <header class="" style="margin-top: -20px;height: 400px">
-  <!-- Wrapper for slides -->
-  <!-- Wrapper for slides -->
-
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <div id="custom-search-input">
-        <div class="input-group col-md-12">
-          <%= text_field_tag :search, params[:search], class: "search-query form-control", :required => true ,placeholder: "İlan ara"%>
-          <span class="input-group-btn">
-            <button class="btn btn-danger" style="height: 20px" type="button"><span class=" fa fa-search"><%= submit_tag "", :name => nil%></span></button>
-          </span>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <%= text_field_tag :search, params[:search], class: "search-query form-control", minlength: 3, :required => true ,placeholder: "İlan ara"%>
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" style="height: 20px" type="button">
+                            <span class=" fa fa-search">
+                              <%= submit_tag "", :name => nil %>
+                            </span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <%= image_tag "slide3.jpg",style:"height: 509px; width: 100%" %>
         </div>
-      </div>
-      <%= image_tag "slide3.jpg",style:"height: 509px; width: 100%" %>
     </div>
-  </div>
-  <% end %>
+    <% end %>
 </header>
 <br>
 <div class="firmalar" style="width: 90%;padding-left: 10%">
-  <div class='row'>
-    <h2><center>Bizim ile Çalışan Firmalar</center></h2>
-    <div class='col-md-8' style="margin-left: 17%">
-      <div class="carousel slide media-carousel" id="media">
+    <div class='row'>
+        <h2>
+            <center>Bizim ile Çalışan Firmalar</center>
+        </h2>
+        <div class='col-md-8' style="margin-left: 17%">
+            <div class="carousel slide media-carousel" id="media">
 
-        <div class="carousel-inner">
-          <div class="item  active">
-            <div class="row ">
-              <% Company.all.limit(3).each do |c|%>
-                  <div class="col-md-4">
-                    <%= link_to ilanlar_path(:compID => c.id) do %>
-                        <%= image_tag c.company_icon.url, {class:"img-circle img-responsive img-center"} %>
-                        <center><h5 style="color: black"><%= c.name %></h5></center>
-                    <% end %>
-                  </div>
-              <%end%>
+                <div class="carousel-inner">
+                    <div class="item  active">
+                        <div class="row ">
+                            <% Company.all.limit(3).each do |c|%>
+                            <div class="col-md-4">
+                                <%= link_to ilanlar_path(:compID => c.id) do %>
+                                <%= image_tag c.company_icon.url, {class:"img-circle img-responsive img-center"} %>
+                                <center>
+                                    <h5 style="color: black"><%= c.name %></h5>
+                                </center>
+                                <% end %>
+                            </div>
+                            <%end%>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row ">
+                            <% Company.all.order("created_at DESC").limit(3).each do |c|%>
+                            <div class="col-md-4">
+                                <%= link_to ilanlar_path(:compID => c.id) do %>
+                                <%= image_tag c.company_icon.url, {class:"img-circle img-responsive img-center"} %>
+                                <center>
+                                    <h5 style="color: black"><%= c.name %></h5>
+                                </center>
+                                <% end %>
+                            </div>
+                            <%end%>
+                        </div>
+                    </div>
+                </div>
+                <a data-slide="prev" href="#media" class="left carousel-control" style="margin-left: -35%">‹</a>
+                <a data-slide="next" href="#media" class="right carousel-control" style="margin-right: -35%">›</a>
             </div>
-          </div>
-          <div class="item">
-            <div class="row ">
-              <% Company.all.order("created_at DESC").limit(3).each do |c|%>
-                  <div class="col-md-4">
-                    <%= link_to ilanlar_path(:compID => c.id) do %>
-                        <%= image_tag c.company_icon.url, {class:"img-circle img-responsive img-center"} %>
-                        <center><h5 style="color: black"><%= c.name %></h5></center>
-                    <% end %>
-                  </div>
-              <%end%>
-            </div>
-          </div>
         </div>
-        <a data-slide="prev" href="#media" class="left carousel-control" style="margin-left: -35%">‹</a>
-        <a data-slide="next" href="#media" class="right carousel-control" style="margin-right: -35%">›</a>
-      </div>
     </div>
-  </div>
 </div>
 <!-- Page Content -->
 <div class="container firmaalticontainer ">
-  <!-- Page Features -->
-  <div class="row text-center">
-    <div class="col-md-4">
-      <h4>Son İlanlar</h4>
-      <% @ans.each do |c|%>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <%= link_to c.title, c ,{style: "color:black"}%>
-          </li>
-        </ul>
-        <%end%>
-          <h4>Son ilan veren Firmalar</h4>
-          <% @comporder.each do |c|%>
+    <!-- Page Features -->
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4>Son İlanlar</h4>
+            <% @ans.each do |c|%>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <%= link_to c.title, c ,{style: "color:black"}%>
+                </li>
+            </ul>
+            <%end%>
+            <h4>Son ilan veren Firmalar</h4>
+            <% @comporder.each do |c|%>
             <div class="col-md-6" style="margin-left:25%">
-              <%= link_to ilanlar_path(:compID => c.id) do %>
+                <%= link_to ilanlar_path(:compID => c.id) do %>
                 <%= image_tag c.company_icon.url, :class => "img-circle2 img-responsive" %>
-                  <span style="font-weight: bold; color:black;margin-top: 5px"> <%= c.name %> </span>
-                  <% end %>
-                    <hr>
+                <span style="font-weight: bold; color:black;margin-top: 5px">
+                    <%= c.name %>
+                </span>
+                <% end %>
+                <hr>
             </div>
             <%end%>
-    </div>
-    <h4>Tüm Yetenekler</h4>
-    <div class="col-md-8">
-      <% if @s.present? %>
-        <% @s.each do |s| %>
-          <div class="col-md-6">
-            <div class="thumbnail">
-              <img class="card-img-top" src="">
-              <%= link_to(image_tag(s.skill_icon.url), ilanlar_path(:skillID => s.id)) %>
+        </div>
+        <h4>Tüm Yetenekler</h4>
+        <div class="col-md-8">
+            <% if @s.present? %>
+            <% @s.each do |s| %>
+            <div class="col-md-6">
+                <div class="thumbnail">
+                    <img class="card-img-top" src="">
+                    <%= link_to(image_tag(s.skill_icon.url), ilanlar_path(:skillID => s.id)) %>
+                </div>
             </div>
-          </div>
-          <% end %>
-      <% end %>
+            <% end %>
+            <% end %>
+        </div>
     </div>
-  </div>
-  <hr>
+    <hr>
 </div>
 <%= javascript_include_tag 'jquery.js' %>

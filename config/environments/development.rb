@@ -7,8 +7,8 @@ Rails.application.configure do
   config.cache_classes = false
   # Do not eager load code on boot.
   config.eager_load = false
-  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin; C:\Program Files\ImageMagick-7.0.4-Q16'
-   Paperclip.options[:swallow_stderr] = false
+  # Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin; C:\Program Files\ImageMagick-7.0.4-Q16'
+  # Paperclip.options[:swallow_stderr] = false
   # Show full error reports.
   config.consider_all_requests_local = true
 
