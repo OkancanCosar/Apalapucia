@@ -22,8 +22,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'wdm','>=0.1.0'
 
 
-
-
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'brakeman', :require => false
