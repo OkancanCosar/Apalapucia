@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @comp = Company.all.limit(3)
+    @comp = Company.all.order('created_at ASC').limit(3)
     @ans = Announcament.all.order("created_at DESC").limit(5)
     @comporder = Company.all.order("created_at DESC").limit(3)
     @s = Skill.all

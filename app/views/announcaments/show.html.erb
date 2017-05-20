@@ -31,13 +31,13 @@
                 <% if a.present? %>
                   <%= Member.find(a[0].member_id).name  %> <%= Member.find(a[0].member_id).lastname  %>
                 <% end %>
-                ,<br>
+                <br>
                   <% end %>
           </li>
           <div class="card-block" style="margin-left: 35px;margin-top: 15px">
             <% if @owner %>
               <%= link_to 'Düzenle', edit_announcament_path(@announcament), :class => "btn btn-success" %>
-              <%= link_to 'Sil', @announcament, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+              <%= link_to 'Sil', @announcament, method: :delete, data: { confirm: 'Emin misiniz?' }, :class => "btn btn-danger" %>
             <% end %>
               <%= link_to 'Başvuru Yap', new_appointment_path(:an_id => @announcament.id), :class => "btn btn-info" %>
           </div>

@@ -73,7 +73,7 @@ class AnnouncamentsController < ApplicationController
 
     respond_to do |format|
       if @announcament.save
-        format.html { redirect_to @announcament, notice: 'Announcament was successfully created.' }
+        format.html { redirect_to @announcament, notice: 'İlan başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @announcament }
       else
         format.html { render :new }
@@ -87,7 +87,7 @@ class AnnouncamentsController < ApplicationController
   def update
     respond_to do |format|
       if @announcament.update(announcament_params)
-        format.html { redirect_to @announcament, notice: 'Announcament was successfully updated.' }
+        format.html { redirect_to @announcament, notice: 'İlan başarılı bir şekilde güncellendi.' }
         format.json { render :show, status: :ok, location: @announcament }
       else
         format.html { render :edit }
@@ -104,7 +104,7 @@ class AnnouncamentsController < ApplicationController
     else
       @announcament.destroy
       respond_to do |format|
-        format.html { redirect_to announcaments_url, notice: 'Announcament was successfully destroyed.' }
+        format.html { redirect_to announcaments_url, notice: 'İlan başarılı bir şekilde kaldırıldı.' }
         format.json { head :no_content }
       end
     end

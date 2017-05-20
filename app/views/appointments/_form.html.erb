@@ -14,7 +14,7 @@
       <div class="container" style="padding: 50px; margin-top:-100px">
         <div class="form-group">
           <div class="field-wrap">
-            <span style="color:red"> Write something </span>
+            <span style="color:red"> Sizi neden seçmeliler? </span>
             <br>
             <%= f.text_area :body %>
           </div>
@@ -22,9 +22,9 @@
 
         <div class="form-group" style="margin-top: 18%">
           <div class="field-wrap">
-            <span style="color:red"> Choose season </span>
+            <span style="color:red"> Zaman seç </span>
             <br>
-            <%= f.collection_select(:season_id, @seasonss, :id, :start_date, :include_blank => "Please select a time...") %>
+            <%= f.collection_select(:season_id, @seasonss, :id, :start_date, :include_blank => "Lütfen bir zaman seçin...") %>
           </div>
         </div>
         <%= f.hidden_field :member_id, value: current_member.id %>

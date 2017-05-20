@@ -3,17 +3,17 @@
 </p>
 <div class="container" style="margin:20px">
   <p>
-    <strong>Start date:</strong>
+    <strong>Başlama zamanı:</strong>
     <%= @season.start_date.strftime('%B %d, %Y %H:%M')  %>
   </p>
 
   <p>
-    <strong>End date:</strong>
+    <strong>Bitiş zamanı:</strong>
     <%= @season.end_date.strftime('%B %d, %Y %H:%M')  %>
   </p>
   <p>
-    <%= link_to 'New Season', new_season_path, class:"btn btn-small btn-primary" %>
-    <%= link_to 'Edit', edit_season_path(@season), class:"btn btn-small btn-success" %>
-    <%= link_to 'Back to create announcement', new_announcament_path, class:"btn btn-small btn-info" %>
+    <%= link_to 'Yeni zaman aralığı', new_season_path, class:"btn btn-small btn-primary" %>
+    <%= link_to 'Düzenle', edit_season_path(@season), class:"btn btn-small btn-success" %>
+    <%= link_to 'Geri', new_announcament_path, class:"btn btn-small btn-info" %>
   </p>
 </div>

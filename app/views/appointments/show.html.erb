@@ -3,7 +3,7 @@
 </p>
 <div class="container" style="margin:20px">
   <p>
-    <strong>Body:</strong>
+    <strong>İlan metni:</strong>
     <%= @appointment.body.html_safe %>
   </p>
 
@@ -12,17 +12,17 @@
     <% if @appointment.season_id.present? %>
       <%= @sea.start_date.strftime('%B %d, %Y %H:%M') %>
         <% else %>
-          No season
+          Zaman aralığı yok
           <% end %>
   </p>
 
   <p>
-    <strong>Member:</strong>
+    <strong>Üye:</strong>
     <%= @me.name %> <%= @me.lastname %>
   </p>
 
   <p>
-    <strong>Announcament:</strong>
+    <strong>İlan:</strong>
     <%= @ans.title %>
   </p>
 </div>

@@ -8,17 +8,17 @@
           <div class="card">
             <div class="card-block">
               <h4 class="card-title">Announcament: <%= appointments.announcament.title  %></h4>
-              <p class="card-text">Appointment body:
+              <p class="card-text">İlan metni:
                 <%= appointments.body.html_safe %>
               </p>
             </div>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Season start:
+              <li class="list-group-item">Zaman aralığı başlama: 
                 <% if appointments.season.present? %>
                   <%= appointments.season.start_date.strftime('%B %d, %Y %H:%M') %>
                 <% else %>
-                  Not setting
+                  Ayarlanmadı.
                 <% end %>
               </li>
             </ul>
@@ -31,7 +31,7 @@
         </div>
         <% end %>
           <% else %>
-          There is no appointments
+          Burda herhangi bir ilan yok
           <% end %>
             <div class="col-sm-1">
             </div>

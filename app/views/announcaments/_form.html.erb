@@ -61,7 +61,7 @@
                         </button>
                         <% if announcament.errors.any? %>
                           <div id="error_explanation">
-                            <h2><%= pluralize(announcament.errors.count, "error") %> prohibited this announcament from being saved:</h2>
+                            <h2><%= pluralize(announcament.errors.count, "error") %> kaydolurken hata: </h2>
                             <ul>
                               <% announcament.errors.full_messages.each do |message| %>
                                 <li>

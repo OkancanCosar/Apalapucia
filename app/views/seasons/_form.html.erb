@@ -1,7 +1,7 @@
 <%= form_for(season) do |f| %>
   <% if season.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(season.errors.count, "error") %> prohibited this season from being saved:</h2>
+      <h2><%= pluralize(season.errors.count, "error") %> kaydedilirken hata:</h2>
 
       <ul>
         <% season.errors.full_messages.each do |message| %>
@@ -16,7 +16,7 @@
       <div class="" style="padding: 50px; margin-top:-100px">
         <div class="form-group">
           <div class="field-wrap">
-            <span style="color:red"> Start date </span>
+            <span style="color:red"> Başlangıç zamanı </span>
             <br>
             <%= f.datetime_select :start_date %>
           </div>
@@ -27,7 +27,7 @@
         <div class="" style="padding: 50px; margin-top:-100px">
           <div class="form-group">
             <div class="field-wrap">
-              <span style="color:red"> End date </span>
+              <span style="color:red"> Bitiş zamanı </span>
               <br>
               <%= f.datetime_select :end_date %>
             </div>
