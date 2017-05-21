@@ -1,3 +1,5 @@
+![alt text](https://github.com/OkancanCosar/Apalapucia/blob/master/i.gif)
+
 ## Running the app
 
     git clone https://github.com/OkancanCosar/Apalapucia.git
